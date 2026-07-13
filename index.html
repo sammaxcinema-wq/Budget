@@ -9,15 +9,13 @@
     <link rel="manifest" href="data:application/json;base64,ewogICJuYW1lIjogIlNhbW1heCBDaW5lbWEgLSBQcm9kdWN0aW9uIEJ1ZGdldCIsCiAgInNob3J0X25hbWUiOiAiU2FtbWF4IEJ1ZGdldCIsCiAgImRlc2NyaXB0aW9uIjogIlByb2Zlc3Npb25hbCBwcm9kdWN0aW9uIGJ1ZGdldCB0cmFja2VyIGZvciBmaWxtbWFrZXJzIiwKICAic3RhcnRfdXJsIjogIi4iLAogICJkaXNwbGF5IjogInN0YW5kYWxvbmUiLAogICJiYWNrZ3JvdW5kX2NvbG9yIjogIiMwNjA3MDkiLAogICJ0aGVtZV9jb2xvciI6ICIjZDRhZjM3IiwKICAiaWNvbnMiOiBbCiAgICB7CiAgICAgICJzcmMiOiAiZGF0YTppbWFnZS9zdmcreG1sLDxzdmcgeG1sbnM9J2h0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnJyB2aWV3Qm94PScwIDAgNTEyIDUxMic+PHJlY3Qgd2lkdGg9JzUxMicgaGVpZ2h0PSc1MTInIHJ4PSc2MCcgZmlsbD0nJTA2MDcwOScvPjxjaXJjbGUgY3g9JzI1NicgY3k9JzI1Nicgcj0nMTUwJyBmaWxsPScjZDRhZjM3Jy8+PHBhdGggZD0nTTE4MCAyMjAgbDk2IDk2IDk2LTk2JyBzdHJva2U9JyMwNjA3MDknIHN0cm9rZS13aWR0aD0nMzInIGZpbGw9J25vbmUnLz48L3N2Zz4iLAogICAgICAic2l6ZXMiOiAiNTEyeDUxMiIsCiAgICAgICJ0eXBlIjogImltYWdlL3N2Zyt4bWwiLAogICAgICAicHVycG9zZSI6ICJhbnkgbWFzayBhbnlsYW5nIgogICAgfQogIF0KfQ==" />
 
     <title>Sammax Cinema · Production Budget Pro</title>
-    <!-- Font Awesome 6 (free) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
-    <!-- Google Font: Inter (variable for razor-sharp rendering) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800;14..32,900&display=swap" rel="stylesheet" />
     <style>
         /* ==========================================================================
-           1. CORE DESIGN TOKENS & ADVANCED EFFECTS
+           CORE DESIGN TOKENS
            ========================================================================== */
         :root {
             --bg-main: #060709;
@@ -64,7 +62,7 @@
 
         .app-container {
             width: 100%;
-            max-width: 1360px;
+            max-width: 1440px;
             background: #0b0e11;
             border: 1px solid var(--border-dark);
             border-radius: 24px;
@@ -74,7 +72,6 @@
             overflow: hidden;
         }
 
-        /* decorative gold accent line */
         .app-container::before {
             content: '';
             position: absolute;
@@ -87,17 +84,17 @@
         }
 
         /* ==========================================================================
-           2. TYPOGRAPHY ELEVATION — RAZOR SHARP
+           HEADER
            ========================================================================== */
         .main-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
             border-bottom: 1px solid var(--border-dark);
-            padding-bottom: 20px;
-            margin-bottom: 24px;
+            padding-bottom: 18px;
+            margin-bottom: 22px;
             flex-wrap: wrap;
-            gap: 16px;
+            gap: 14px;
         }
 
         .logo-area {
@@ -106,7 +103,7 @@
         }
 
         .brand-logo {
-            font-size: clamp(1.8rem, 4vw, 2.6rem);
+            font-size: clamp(1.6rem, 3.5vw, 2.4rem);
             font-weight: 900;
             color: #e52d27;
             letter-spacing: 0.5px;
@@ -115,33 +112,32 @@
         .brand-logo span {
             color: #ffffff;
             font-weight: 300;
-            font-size: clamp(1rem, 2vw, 1.5rem);
+            font-size: clamp(0.9rem, 1.8vw, 1.4rem);
             letter-spacing: 4px;
         }
         .tagline {
-            font-size: clamp(0.55rem, 0.7vw, 0.7rem);
+            font-size: clamp(0.5rem, 0.6vw, 0.65rem);
             color: var(--text-muted);
             letter-spacing: 4px;
-            margin-top: 4px;
+            margin-top: 3px;
             font-weight: 500;
         }
 
         .title-area {
             text-align: center;
-            position: relative;
         }
         .title-area h2 {
-            font-size: clamp(1.4rem, 3vw, 2.2rem);
+            font-size: clamp(1.2rem, 2.5vw, 2rem);
             font-weight: 800;
-            letter-spacing: clamp(6px, 1vw, 10px);
+            letter-spacing: clamp(5px, 0.8vw, 8px);
             color: #ffffff;
             text-shadow: 0 4px 12px rgba(0,0,0,0.5);
             margin-bottom: -4px;
         }
         .title-area h1 {
-            font-size: clamp(2.8rem, 6vw, 4.8rem);
+            font-size: clamp(2.4rem, 5vw, 4.2rem);
             font-weight: 900;
-            letter-spacing: clamp(3px, 0.6vw, 5px);
+            letter-spacing: clamp(3px, 0.5vw, 4px);
             background: var(--gold-metallic);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -150,15 +146,15 @@
         }
         .sub-nav {
             color: var(--green-neon);
-            letter-spacing: clamp(4px, 0.8vw, 6px);
-            font-size: clamp(0.65rem, 0.8vw, 0.8rem);
-            margin-top: 4px;
+            letter-spacing: clamp(3px, 0.6vw, 5px);
+            font-size: clamp(0.6rem, 0.7vw, 0.75rem);
+            margin-top: 3px;
             font-weight: 600;
             text-shadow: 0 0 20px rgba(0, 250, 154, 0.2);
         }
 
         .header-graphic i {
-            font-size: clamp(2.8rem, 5vw, 4.2rem);
+            font-size: clamp(2.5rem, 4.5vw, 3.8rem);
             background: var(--gold-metallic);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -172,31 +168,31 @@
         }
 
         /* ==========================================================================
-           3. CONTAINER & BORDER REFINEMENTS
+           META SECTION
            ========================================================================== */
         .meta-section {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 8px 24px;
+            gap: 6px 20px;
             background: #0b0d10;
             border: 1px solid var(--gold-dim);
             box-shadow: inset 0 0 15px rgba(212, 175, 55, 0.05), 0 10px 30px rgba(0,0,0,0.5);
-            border-radius: 20px;
-            padding: 18px 24px;
-            margin-bottom: 24px;
+            border-radius: 18px;
+            padding: 16px 22px;
+            margin-bottom: 22px;
         }
 
         .form-group {
             display: flex;
             align-items: center;
-            gap: 8px;
-            padding: 4px 0;
+            gap: 6px;
+            padding: 3px 0;
         }
         .form-group label {
-            font-size: clamp(0.6rem, 0.7vw, 0.7rem);
+            font-size: clamp(0.55rem, 0.6vw, 0.65rem);
             font-weight: 700;
             color: var(--text-muted);
-            min-width: clamp(80px, 10vw, 110px);
+            min-width: clamp(70px, 9vw, 100px);
             letter-spacing: 0.8px;
             text-transform: uppercase;
             flex-shrink: 0;
@@ -205,14 +201,13 @@
             flex: 1;
             background: transparent;
             border: none;
-            border-bottom: 1px dotted rgba(255, 255, 255, 0.25);
+            border-bottom: 1px dotted rgba(255, 255, 255, 0.2);
             color: var(--gold-solid);
-            font-size: clamp(0.85rem, 1vw, 0.95rem);
-            padding: 4px 0 4px 6px;
+            font-size: clamp(0.8rem, 0.9vw, 0.9rem);
+            padding: 3px 0 3px 6px;
             outline: none;
             transition: 0.3s;
             font-weight: 600;
-            letter-spacing: 0.3px;
             font-family: var(--font-base);
             min-width: 0;
         }
@@ -223,17 +218,218 @@
         .form-group input::placeholder {
             color: #3a3f4a;
             font-weight: 300;
-            letter-spacing: 0.5px;
         }
 
         /* ==========================================================================
-           4. PANEL BOXES & GRADIENT HEADER CAPS
+           PROJECTS PANEL (NEW)
+           ========================================================================== */
+        .projects-panel-wrapper {
+            margin-bottom: 22px;
+        }
+
+        .projects-panel {
+            background: var(--panel-bg);
+            border: 1px solid var(--border-dark);
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+        }
+
+        .projects-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 18px;
+            background: linear-gradient(90deg, #1a1a2e 0%, #0f1215 100%);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .projects-header-left {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .projects-header-left .icon-circle {
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            border: 1.5px solid var(--gold-solid);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gold-solid);
+            font-size: 0.9rem;
+        }
+
+        .projects-header-left h3 {
+            font-size: clamp(0.95rem, 1.1vw, 1.1rem);
+            font-weight: 700;
+            letter-spacing: 1.5px;
+        }
+
+        .projects-header-actions {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .btn-sm {
+            background: rgba(212, 175, 55, 0.08);
+            border: 1px solid var(--gold-dim);
+            color: var(--gold-solid);
+            padding: 6px 14px;
+            border-radius: 30px;
+            font-size: clamp(0.7rem, 0.75vw, 0.8rem);
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.25s;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-family: var(--font-base);
+        }
+        .btn-sm:hover {
+            background: rgba(212, 175, 55, 0.15);
+            border-color: var(--gold-solid);
+            transform: translateY(-1px);
+        }
+        .btn-sm:active {
+            transform: scale(0.97);
+        }
+        .btn-sm.primary {
+            background: var(--gold-metallic);
+            border-color: var(--gold-solid);
+            color: #060709;
+        }
+        .btn-sm.primary:hover {
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+        }
+
+        .projects-scroll {
+            max-height: 200px;
+            overflow-y: auto;
+            padding: 4px 6px;
+        }
+
+        .project-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 14px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+            transition: 0.2s;
+            cursor: pointer;
+            border-radius: 8px;
+        }
+        .project-item:hover {
+            background: rgba(212, 175, 55, 0.05);
+        }
+        .project-item.active {
+            background: rgba(0, 250, 154, 0.06);
+            border-left: 3px solid var(--green-neon);
+        }
+
+        .project-info {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+        .project-name {
+            font-weight: 600;
+            font-size: clamp(0.85rem, 0.9vw, 0.95rem);
+        }
+        .project-meta-sm {
+            font-size: clamp(0.6rem, 0.65vw, 0.7rem);
+            color: var(--text-muted);
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+        .project-meta-sm span {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+        .project-meta-sm i {
+            font-size: 0.6rem;
+            opacity: 0.6;
+        }
+
+        .project-stats {
+            text-align: right;
+        }
+        .project-budget {
+            font-weight: 700;
+            color: var(--gold-solid);
+            font-size: clamp(0.85rem, 0.9vw, 0.95rem);
+        }
+        .project-status {
+            font-size: clamp(0.55rem, 0.6vw, 0.65rem);
+            padding: 2px 10px;
+            border-radius: 20px;
+            display: inline-block;
+            margin-top: 2px;
+            font-weight: 600;
+        }
+        .status-active {
+            background: rgba(0, 250, 154, 0.15);
+            color: var(--green-neon);
+        }
+        .status-completed {
+            background: rgba(212, 175, 55, 0.15);
+            color: var(--gold-solid);
+        }
+        .status-draft {
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text-muted);
+        }
+
+        .project-actions-sm {
+            display: flex;
+            gap: 4px;
+            margin-left: 8px;
+        }
+        .project-actions-sm button {
+            background: transparent;
+            border: none;
+            color: var(--text-muted);
+            padding: 4px 6px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: 0.2s;
+            font-size: 0.8rem;
+        }
+        .project-actions-sm button:hover {
+            color: var(--gold-solid);
+            background: rgba(212, 175, 55, 0.08);
+        }
+        .project-actions-sm button.delete:hover {
+            color: var(--orange-alert);
+        }
+
+        .empty-projects {
+            text-align: center;
+            padding: 30px 20px;
+            color: var(--text-muted);
+        }
+        .empty-projects i {
+            font-size: 2.5rem;
+            opacity: 0.3;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        /* ==========================================================================
+           MAIN GRID
            ========================================================================== */
         .grid-layout {
             display: grid;
             grid-template-columns: 1.25fr 0.75fr;
-            gap: 24px;
-            margin-bottom: 24px;
+            gap: 22px;
+            margin-bottom: 22px;
         }
 
         @media (max-width: 900px) {
@@ -242,17 +438,24 @@
             }
             .meta-section {
                 grid-template-columns: 1fr;
-                gap: 6px;
+                gap: 4px;
             }
             .financial-overview .overview-grid {
                 grid-template-columns: 1fr 1fr;
             }
             .app-container {
-                padding: 16px;
+                padding: 14px;
             }
             .main-header {
                 flex-direction: column;
                 text-align: center;
+            }
+            .projects-header {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .projects-header-actions {
+                justify-content: center;
             }
         }
 
@@ -280,21 +483,21 @@
         }
 
         .icon-circle {
-            width: clamp(32px, 3.5vw, 38px);
-            height: clamp(32px, 3.5vw, 38px);
+            width: clamp(32px, 3.2vw, 36px);
+            height: clamp(32px, 3.2vw, 36px);
             border-radius: 50%;
             border: 1.5px solid currentColor;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: clamp(0.85rem, 1vw, 1rem);
+            font-size: clamp(0.8rem, 0.9vw, 0.95rem);
             flex-shrink: 0;
         }
         .header-green .icon-circle { color: var(--green-neon); }
         .header-gold .icon-circle { color: var(--gold-solid); }
 
         .panel-header h2 {
-            font-size: clamp(1rem, 1.2vw, 1.15rem);
+            font-size: clamp(0.95rem, 1.1vw, 1.1rem);
             font-weight: 700;
             letter-spacing: 2px;
         }
@@ -308,21 +511,21 @@
         .expenses-table {
             width: 100%;
             border-collapse: collapse;
-            min-width: 420px;
+            min-width: 380px;
         }
         .expenses-table th {
             background: #161a1f;
             color: var(--gold-solid);
-            font-size: clamp(0.6rem, 0.7vw, 0.7rem);
+            font-size: clamp(0.55rem, 0.65vw, 0.65rem);
             text-align: left;
-            padding: 10px 12px;
+            padding: 8px 10px;
             border-bottom: 1px solid var(--border-dark);
             letter-spacing: 1px;
             font-weight: 600;
             text-transform: uppercase;
         }
         .expenses-table td {
-            padding: 6px 12px;
+            padding: 5px 10px;
             border-bottom: 1px solid #1a1e24;
             vertical-align: middle;
         }
@@ -335,20 +538,19 @@
             color: var(--green-neon);
             padding: 2px 8px;
             border-radius: 6px;
-            font-size: clamp(0.65rem, 0.7vw, 0.75rem);
+            font-size: clamp(0.6rem, 0.65vw, 0.7rem);
             font-weight: 700;
             display: inline-block;
-            letter-spacing: 0.5px;
         }
 
         .input-with-icon {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
         }
         .row-icon {
-            width: clamp(28px, 3vw, 32px);
-            height: clamp(28px, 3vw, 32px);
+            width: clamp(26px, 2.8vw, 30px);
+            height: clamp(26px, 2.8vw, 30px);
             border: 1px solid var(--gold-dim);
             background: rgba(212, 175, 55, 0.03);
             border-radius: 6px;
@@ -356,8 +558,7 @@
             align-items: center;
             justify-content: center;
             color: var(--gold-solid);
-            box-shadow: inset 0 0 4px rgba(212, 175, 55, 0.2);
-            font-size: clamp(0.8rem, 0.9vw, 0.9rem);
+            font-size: clamp(0.7rem, 0.8vw, 0.85rem);
             flex-shrink: 0;
         }
         .item-desc {
@@ -366,10 +567,9 @@
             color: #ffffff;
             width: 100%;
             outline: none;
-            font-size: clamp(0.8rem, 0.9vw, 0.9rem);
-            padding: 4px 0;
+            font-size: clamp(0.75rem, 0.85vw, 0.85rem);
+            padding: 3px 0;
             font-weight: 400;
-            letter-spacing: 0.2px;
             font-family: var(--font-base);
         }
         .item-desc::placeholder {
@@ -388,58 +588,52 @@
             font-weight: 700;
             text-align: right;
             width: 100%;
-            font-size: clamp(0.85rem, 0.9vw, 0.95rem);
+            font-size: clamp(0.8rem, 0.85vw, 0.9rem);
             outline: none;
-            padding: 4px 0;
+            padding: 3px 0;
             font-family: var(--font-base);
         }
         .item-cost:focus {
             border-bottom: 1px solid var(--gold-solid);
-        }
-        .item-cost::placeholder {
-            color: #4a4f5a;
-            font-weight: 400;
         }
 
         .panel-footer {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 14px 20px;
+            padding: 12px 18px;
             font-weight: 700;
             flex-wrap: wrap;
-            gap: 8px;
+            gap: 6px;
         }
         .footer-green {
             background: #0b1f16;
             border-top: 1px solid rgba(0, 250, 154, 0.3);
         }
         .footer-title {
-            font-size: clamp(0.8rem, 0.9vw, 0.9rem);
+            font-size: clamp(0.75rem, 0.8vw, 0.85rem);
             color: var(--text-muted);
             letter-spacing: 1.5px;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
         }
         .footer-value {
-            font-size: clamp(1.1rem, 1.3vw, 1.3rem);
+            font-size: clamp(1rem, 1.2vw, 1.2rem);
             letter-spacing: 0.5px;
         }
 
-        /* ==========================================================================
-           5. SUMMARY CARD CAROUSEL DEPTH
-           ========================================================================== */
+        /* Summary */
         .right-column {
             display: flex;
             flex-direction: column;
-            gap: 24px;
+            gap: 22px;
         }
         .summary-body {
-            padding: 16px 18px 20px;
+            padding: 14px 16px 18px;
             display: flex;
             flex-direction: column;
-            gap: 16px;
+            gap: 14px;
         }
 
         .summary-card {
@@ -449,8 +643,8 @@
             border-radius: 14px;
             display: flex;
             align-items: center;
-            gap: 14px;
-            padding: 14px 18px;
+            gap: 12px;
+            padding: 12px 16px;
             transition: 0.25s;
         }
         .summary-card:hover {
@@ -458,13 +652,13 @@
         }
 
         .card-icon {
-            width: clamp(42px, 4.5vw, 50px);
-            height: clamp(42px, 4.5vw, 50px);
+            width: clamp(38px, 4vw, 46px);
+            height: clamp(38px, 4vw, 46px);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: clamp(1.1rem, 1.2vw, 1.3rem);
+            font-size: clamp(1rem, 1.1vw, 1.2rem);
             flex-shrink: 0;
         }
         .green-circle { border: 2px solid var(--green-neon); color: var(--green-neon); background: rgba(0,250,154,0.06); }
@@ -476,10 +670,10 @@
             min-width: 0;
         }
         .card-content label {
-            font-size: clamp(0.6rem, 0.7vw, 0.7rem);
+            font-size: clamp(0.55rem, 0.6vw, 0.65rem);
             color: var(--text-muted);
             display: block;
-            margin-bottom: 3px;
+            margin-bottom: 2px;
             font-weight: 600;
             letter-spacing: 0.8px;
             text-transform: uppercase;
@@ -490,7 +684,7 @@
             align-items: center;
             background: #08090c;
             border-radius: 30px;
-            padding: 4px 14px;
+            padding: 4px 12px;
         }
         .gold-border {
             border: 1px solid var(--gold-solid);
@@ -501,127 +695,113 @@
             color: var(--gold-solid);
             font-weight: 700;
             margin-right: 6px;
-            font-size: clamp(0.75rem, 0.8vw, 0.85rem);
+            font-size: clamp(0.7rem, 0.75vw, 0.8rem);
         }
         .input-wrapper input {
             background: transparent;
             border: none;
             color: var(--gold-solid);
-            font-size: clamp(1.1rem, 1.3vw, 1.25rem);
+            font-size: clamp(1rem, 1.2vw, 1.15rem);
             font-weight: 700;
             width: 100%;
             outline: none;
             font-family: var(--font-base);
-            padding: 4px 0;
+            padding: 3px 0;
         }
         .static-display {
             color: var(--gold-solid);
-            font-size: clamp(1.1rem, 1.3vw, 1.25rem);
+            font-size: clamp(1rem, 1.2vw, 1.15rem);
             font-weight: 700;
-            border: 1px solid transparent;
         }
 
-        /* Balance Card - Premium Glow */
         .balance-card {
             background: radial-gradient(circle at top left, #05291b, #0c1014 80%);
             border: 1px solid rgba(0, 250, 154, 0.3) !important;
             box-shadow: 0 8px 25px rgba(0, 250, 154, 0.08), inset 0 0 15px rgba(0, 250, 154, 0.05);
         }
         .balance-display {
-            font-size: clamp(1.6rem, 2.4vw, 2.2rem);
+            font-size: clamp(1.4rem, 2.2vw, 2rem);
             font-weight: 900;
             text-shadow: 0 0 15px rgba(0, 250, 154, 0.4);
             letter-spacing: -0.5px;
             transition: 0.3s;
         }
         .balance-tag {
-            font-size: clamp(0.6rem, 0.7vw, 0.7rem);
+            font-size: clamp(0.55rem, 0.6vw, 0.65rem);
             color: var(--gold-solid);
             font-style: italic;
             display: block;
             margin-top: 2px;
-            letter-spacing: 0.5px;
             opacity: 0.8;
         }
 
-        /* Notes Panel */
+        /* Notes */
         .notes-panel .notes-body {
-            padding: 12px 16px 16px;
+            padding: 10px 14px 14px;
         }
         .notes-panel textarea {
             width: 100%;
-            height: clamp(80px, 12vh, 100px);
+            height: clamp(70px, 10vh, 90px);
             background: transparent;
             border: 1px solid var(--border-dark);
             border-radius: 12px;
-            padding: 12px 16px;
+            padding: 10px 14px;
             color: #ffffff;
             outline: none;
             resize: vertical;
-            line-height: 1.7;
+            line-height: 1.6;
             font-family: var(--font-base);
-            font-size: clamp(0.8rem, 0.9vw, 0.9rem);
+            font-size: clamp(0.75rem, 0.8vw, 0.85rem);
             transition: 0.25s;
         }
         .notes-panel textarea:focus {
             border-color: var(--gold-solid);
-            box-shadow: 0 0 20px rgba(212, 175, 55, 0.04);
-        }
-        .notes-panel textarea::placeholder {
-            color: #4a4f5a;
-            font-style: italic;
         }
 
-        /* ==========================================================================
-           6. FINANCIAL OVERVIEW BAR
-           ========================================================================== */
+        /* Financial Overview */
         .financial-overview {
             border: 1px solid rgba(212, 175, 55, 0.15);
             border-radius: 16px;
-            padding: 18px 22px;
-            margin-bottom: 20px;
+            padding: 16px 20px;
+            margin-bottom: 18px;
             background: var(--panel-bg);
             box-shadow: 0 4px 20px rgba(0,0,0,0.2);
         }
         .overview-title {
             text-align: center;
             color: var(--gold-solid);
-            font-size: clamp(0.8rem, 0.9vw, 0.95rem);
+            font-size: clamp(0.75rem, 0.85vw, 0.9rem);
             letter-spacing: 4px;
-            margin-bottom: 16px;
+            margin-bottom: 14px;
             font-weight: 600;
-            position: relative;
         }
         .overview-title::after {
             content: '';
             display: block;
-            width: 60px;
+            width: 50px;
             height: 2px;
             background: linear-gradient(90deg, transparent, var(--gold-solid), transparent);
-            margin: 8px auto 0;
+            margin: 6px auto 0;
             opacity: 0.5;
         }
 
         .overview-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr) 1.6fr;
-            gap: 14px;
+            gap: 12px;
             align-items: center;
         }
         @media (max-width: 820px) {
             .overview-grid {
                 grid-template-columns: 1fr 1fr;
-                gap: 14px;
+                gap: 12px;
             }
             .overview-signature {
                 border-left: none;
                 padding-left: 0;
                 border-top: 1px solid var(--border-dark);
-                padding-top: 14px;
+                padding-top: 12px;
                 grid-column: 1 / -1;
-            }
-            .financial-overview {
-                padding: 16px;
             }
         }
 
@@ -633,40 +813,39 @@
             padding: 4px 0;
         }
         .overview-item .overview-icon {
-            width: clamp(36px, 4vw, 44px);
-            height: clamp(36px, 4vw, 44px);
+            width: clamp(34px, 3.5vw, 40px);
+            height: clamp(34px, 3.5vw, 40px);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: clamp(0.9rem, 1vw, 1.1rem);
-            margin-bottom: 4px;
+            font-size: clamp(0.8rem, 0.9vw, 1rem);
+            margin-bottom: 3px;
         }
         .overview-item .label {
-            font-size: clamp(0.5rem, 0.6vw, 0.6rem);
+            font-size: clamp(0.45rem, 0.55vw, 0.55rem);
             color: var(--text-muted);
             font-weight: 600;
             letter-spacing: 0.8px;
             text-transform: uppercase;
         }
         .overview-item .val {
-            font-size: clamp(0.9rem, 1.1vw, 1.1rem);
+            font-size: clamp(0.85rem, 1vw, 1rem);
             font-weight: 700;
             margin-top: 2px;
-            letter-spacing: 0.3px;
         }
 
         .overview-signature {
             border-left: 1px solid var(--border-dark);
-            padding-left: 20px;
+            padding-left: 18px;
         }
         .brand-logo.mini {
-            font-size: clamp(1rem, 1.2vw, 1.2rem);
+            font-size: clamp(0.9rem, 1.1vw, 1.1rem);
             font-weight: 900;
             color: #e52d27;
         }
         .brand-logo.mini span {
-            font-size: clamp(0.6rem, 0.7vw, 0.7rem);
+            font-size: clamp(0.5rem, 0.6vw, 0.65rem);
             display: inline;
             letter-spacing: 2px;
             color: #ffffff;
@@ -676,14 +855,14 @@
         .sig-group {
             display: flex;
             align-items: center;
-            margin-top: 6px;
+            margin-top: 5px;
             gap: 4px;
             flex-wrap: wrap;
         }
         .sig-group label {
-            font-size: clamp(0.55rem, 0.6vw, 0.65rem);
+            font-size: clamp(0.5rem, 0.55vw, 0.6rem);
             color: var(--text-muted);
-            min-width: clamp(60px, 7vw, 80px);
+            min-width: clamp(55px, 6vw, 70px);
             font-weight: 600;
             letter-spacing: 0.5px;
             text-transform: uppercase;
@@ -695,32 +874,29 @@
             color: #ffffff;
             outline: none;
             flex: 1;
-            font-size: clamp(0.75rem, 0.8vw, 0.85rem);
+            font-size: clamp(0.7rem, 0.75vw, 0.8rem);
             padding: 2px 4px;
-            min-width: 50px;
+            min-width: 40px;
             font-family: var(--font-base);
-            transition: 0.2s;
         }
         .sig-group input:focus {
             border-bottom-color: var(--gold-solid);
         }
 
-        /* ==========================================================================
-           7. FOOTER
-           ========================================================================== */
+        /* Footer */
         .app-footer {
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
             border-top: 1px solid var(--border-dark);
-            padding-top: 16px;
-            font-size: clamp(0.7rem, 0.8vw, 0.8rem);
+            padding-top: 14px;
+            font-size: clamp(0.65rem, 0.7vw, 0.75rem);
         }
         .contact-info {
             display: flex;
             flex-wrap: wrap;
-            gap: 12px 28px;
+            gap: 10px 24px;
             color: var(--text-muted);
             justify-content: center;
         }
@@ -728,7 +904,6 @@
             margin-right: 4px;
             color: var(--gold-solid);
             opacity: 0.6;
-            transition: 0.2s;
         }
         .contact-info span:hover i {
             opacity: 1;
@@ -736,66 +911,14 @@
         .footer-motto {
             color: var(--text-muted);
             letter-spacing: 3px;
-            font-size: clamp(0.6rem, 0.7vw, 0.7rem);
+            font-size: clamp(0.55rem, 0.6vw, 0.65rem);
             margin-top: 2px;
             font-weight: 500;
             opacity: 0.7;
             text-align: center;
         }
 
-        /* ==========================================================================
-           8. BUTTON & INTERACTION POLISH
-           ========================================================================== */
-        .btn-icon {
-            background: transparent;
-            border: none;
-            color: var(--text-muted);
-            font-size: clamp(1rem, 1.2vw, 1.2rem);
-            padding: 8px 12px;
-            border-radius: 12px;
-            cursor: pointer;
-            transition: 0.25s;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            font-family: var(--font-base);
-            font-weight: 500;
-        }
-        .btn-icon:hover {
-            background: rgba(212, 175, 55, 0.08);
-            color: var(--gold-solid);
-        }
-        .btn-icon:active {
-            transform: scale(0.95);
-        }
-
-        .btn-primary {
-            background: var(--gold-metallic);
-            border: none;
-            color: #060709;
-            font-weight: 700;
-            padding: 10px 24px;
-            border-radius: 60px;
-            font-size: clamp(0.85rem, 0.9vw, 0.95rem);
-            cursor: pointer;
-            transition: 0.25s;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            font-family: var(--font-base);
-            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2);
-        }
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.3);
-        }
-        .btn-primary:active {
-            transform: scale(0.97);
-        }
-
-        /* ==========================================================================
-           9. UTILITIES & INPUT CLEANUP
-           ========================================================================== */
+        /* Utilities */
         input::-webkit-outer-spin-button,
         input::-webkit-inner-spin-button {
             -webkit-appearance: none;
@@ -805,50 +928,6 @@
             -moz-appearance: textfield;
         }
 
-        @media (max-width: 480px) {
-            .app-container {
-                padding: 12px;
-                border-radius: 16px;
-            }
-            .meta-section {
-                padding: 12px 14px;
-                gap: 4px;
-            }
-            .form-group {
-                flex-wrap: wrap;
-                gap: 2px;
-            }
-            .form-group label {
-                min-width: 70px;
-                font-size: 0.6rem;
-            }
-            .panel-header {
-                padding: 10px 14px;
-            }
-            .summary-card {
-                padding: 12px 14px;
-                gap: 10px;
-            }
-            .financial-overview {
-                padding: 12px 14px;
-            }
-            .overview-signature {
-                padding-top: 12px;
-            }
-            .contact-info {
-                gap: 8px 16px;
-                font-size: 0.7rem;
-            }
-            .expenses-table {
-                min-width: 320px;
-            }
-            .expenses-table th,
-            .expenses-table td {
-                padding: 4px 8px;
-            }
-        }
-
-        /* Scrollbar Styling */
         ::-webkit-scrollbar {
             width: 4px;
             height: 4px;
@@ -863,12 +942,57 @@
         ::-webkit-scrollbar-thumb:hover {
             background: var(--gold-solid);
         }
+
+        @media (max-width: 480px) {
+            .app-container {
+                padding: 10px;
+                border-radius: 14px;
+            }
+            .meta-section {
+                padding: 10px 12px;
+            }
+            .form-group {
+                flex-wrap: wrap;
+                gap: 2px;
+            }
+            .form-group label {
+                min-width: 60px;
+                font-size: 0.55rem;
+            }
+            .panel-header {
+                padding: 8px 12px;
+            }
+            .summary-card {
+                padding: 10px 12px;
+                gap: 8px;
+            }
+            .financial-overview {
+                padding: 10px 12px;
+            }
+            .expenses-table {
+                min-width: 300px;
+            }
+            .expenses-table th,
+            .expenses-table td {
+                padding: 4px 6px;
+            }
+            .projects-scroll {
+                max-height: 150px;
+            }
+            .project-item {
+                padding: 8px 10px;
+                flex-wrap: wrap;
+            }
+            .project-actions-sm {
+                margin-left: 0;
+            }
+        }
     </style>
 </head>
 <body>
 
 <div class="app-container">
-    <!-- HEADER SECTION -->
+    <!-- HEADER -->
     <header class="main-header">
         <div class="logo-area">
             <h1 class="brand-logo">Sammax <span>CINEMA</span></h1>
@@ -884,8 +1008,8 @@
         </div>
     </header>
 
-    <!-- META DETAILS FORM -->
-    <section class="meta-section" id="metaSection">
+    <!-- META -->
+    <section class="meta-section">
         <div class="form-group"><label>PROJECT NAME:</label><input type="text" id="projectName" placeholder="Wedding Photography" value="Wedding Photography" /></div>
         <div class="form-group"><label>PROJECT ID:</label><input type="text" id="projectId" placeholder="P-2026-0713" value="P-2026-0713" /></div>
         <div class="form-group"><label>CLIENT NAME:</label><input type="text" id="clientName" placeholder="The Mwangi Wedding" value="The Mwangi Wedding" /></div>
@@ -894,7 +1018,30 @@
         <div class="form-group"><label>LOCATION:</label><input type="text" id="projectLocation" placeholder="Nairobi, Kenya" value="Nairobi, Kenya" /></div>
     </section>
 
-    <!-- MAIN CONTENT: EXPENSES & SUMMARY -->
+    <!-- ============================================================
+         PROJECTS PANEL (NEW)
+         ============================================================ -->
+    <div class="projects-panel-wrapper">
+        <div class="projects-panel">
+            <div class="projects-header">
+                <div class="projects-header-left">
+                    <div class="icon-circle"><i class="fa-solid fa-folder-open"></i></div>
+                    <h3>PROJECTS</h3>
+                    <span style="font-size:0.7rem; color:var(--text-muted);" id="projectCount">0 projects</span>
+                </div>
+                <div class="projects-header-actions">
+                    <button class="btn-sm" id="newProjectBtn"><i class="fa-solid fa-plus"></i> New</button>
+                    <button class="btn-sm" id="duplicateProjectBtn"><i class="fa-regular fa-copy"></i> Duplicate</button>
+                    <button class="btn-sm primary" id="saveProjectBtn"><i class="fa-regular fa-floppy-disk"></i> Save</button>
+                </div>
+            </div>
+            <div class="projects-scroll" id="projectsList">
+                <!-- Projects rendered by JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN GRID -->
     <div class="grid-layout">
 
         <!-- EXPENSES PANEL -->
@@ -902,14 +1049,14 @@
             <div class="panel-header header-green">
                 <div class="icon-circle"><i class="fa-solid fa-list-check"></i></div>
                 <h2>EXPENSES</h2>
-                <div style="margin-left: auto; display: flex; gap: 6px;">
-                    <button class="btn-icon" id="addRowBtn" title="Add expense row"><i class="fa-solid fa-plus-circle"></i></button>
-                    <button class="btn-icon" id="resetRowsBtn" title="Reset to default"><i class="fa-solid fa-rotate-left"></i></button>
+                <div style="margin-left: auto; display: flex; gap: 4px;">
+                    <button class="btn-sm" id="addRowBtn" title="Add expense row"><i class="fa-solid fa-plus-circle"></i></button>
+                    <button class="btn-sm" id="resetRowsBtn" title="Reset to default"><i class="fa-solid fa-rotate-left"></i></button>
                 </div>
             </div>
 
             <div class="expenses-table-wrap">
-                <table class="expenses-table" id="expensesTable">
+                <table class="expenses-table">
                     <thead>
                         <tr>
                             <th style="width:8%;">#</th>
@@ -918,7 +1065,7 @@
                         </tr>
                     </thead>
                     <tbody id="expenseRows">
-                        <!-- rows injected by JavaScript -->
+                        <!-- injected by JS -->
                     </tbody>
                 </table>
             </div>
@@ -929,7 +1076,7 @@
             </div>
         </section>
 
-        <!-- RIGHT PANEL: SUMMARY & NOTES -->
+        <!-- RIGHT COLUMN -->
         <div class="right-column">
             <section class="panel summary-panel">
                 <div class="panel-header header-gold">
@@ -938,7 +1085,6 @@
                 </div>
 
                 <div class="summary-body">
-                    <!-- Budget Input -->
                     <div class="summary-card">
                         <div class="card-icon green-circle"><i class="fa-solid fa-sack-dollar"></i></div>
                         <div class="card-content">
@@ -950,7 +1096,6 @@
                         </div>
                     </div>
 
-                    <!-- Expenses Display -->
                     <div class="summary-card">
                         <div class="card-icon orange-circle"><i class="fa-solid fa-wallet"></i></div>
                         <div class="card-content">
@@ -959,7 +1104,6 @@
                         </div>
                     </div>
 
-                    <!-- Remaining Balance -->
                     <div class="summary-card balance-card">
                         <div class="card-icon green-circle"><i class="fa-solid fa-money-bill-wave"></i></div>
                         <div class="card-content">
@@ -971,20 +1115,19 @@
                 </div>
             </section>
 
-            <!-- NOTES SECTION -->
             <section class="panel notes-panel">
                 <div class="panel-header header-green">
                     <div class="icon-circle"><i class="fa-solid fa-pen-to-square"></i></div>
                     <h2>NOTES</h2>
                 </div>
                 <div class="notes-body">
-                    <textarea id="notesArea" placeholder="Add production notes, special requirements, or anything important...">Premium coverage with 2 photographers, drone cinematic shots, and full post-production.</textarea>
+                    <textarea id="notesArea" placeholder="Add production notes...">Premium coverage with 2 photographers, drone cinematic shots, and full post-production.</textarea>
                 </div>
             </section>
         </div>
     </div>
 
-    <!-- FINANCIAL OVERVIEW FOOTER BAR -->
+    <!-- FINANCIAL OVERVIEW -->
     <section class="financial-overview">
         <h3 class="overview-title">FINANCIAL OVERVIEW</h3>
         <div class="overview-grid">
@@ -1017,7 +1160,7 @@
         </div>
     </section>
 
-    <!-- FOOTER BRANDING -->
+    <!-- FOOTER -->
     <footer class="app-footer">
         <div class="contact-info">
             <span><i class="fa-solid fa-phone gold-text"></i> +254 700 000 000</span>
@@ -1033,7 +1176,9 @@
 
 <script>
     document.addEventListener('DOMContentLoaded', () => {
-        // ---------- State ----------
+        // ============================================================
+        // 1. STATE
+        // ============================================================
         const defaultExpenses = [
             { description: 'Camera', amount: 2000 },
             { description: 'Drone', amount: 3000 },
@@ -1052,16 +1197,29 @@
             'fa-laptop', 'fa-users', 'fa-car', 'fa-utensils', 'fa-lightbulb'
         ];
 
+        // Project management
+        let projects = [];
+        let activeProjectId = null;
+        let nextProjectId = 1;
+
+        // Current working data (mirrors active project)
         let expenseRows = JSON.parse(JSON.stringify(defaultExpenses));
         let totalBudget = 40000;
+        let projectName = 'Wedding Photography';
+        let clientName = 'The Mwangi Wedding';
+        let eventType = 'Wedding';
+        let projectLocation = 'Nairobi, Kenya';
+        let notes = 'Premium coverage with 2 photographers, drone cinematic shots, and full post-production.';
 
         // DOM refs
         const tbody = document.getElementById('expenseRows');
         const budgetInput = document.getElementById('budgetInput');
-        const addRowBtn = document.getElementById('addRowBtn');
-        const resetRowsBtn = document.getElementById('resetRowsBtn');
+        const projectsListEl = document.getElementById('projectsList');
+        const projectCountEl = document.getElementById('projectCount');
 
-        // ---------- Helpers ----------
+        // ============================================================
+        // 2. HELPERS
+        // ============================================================
         function getTotalExpenses() {
             let sum = 0;
             expenseRows.forEach(row => {
@@ -1081,8 +1239,213 @@
             return currencyFormatter.format(val).replace('KES', 'KSh');
         }
 
-        // ---------- Render ----------
+        function generateProjectId() {
+            const now = new Date();
+            const d = now.toISOString().slice(0,10).replace(/-/g,'');
+            return `P-${d}-${String(nextProjectId++).padStart(3,'0')}`;
+        }
+
+        // ============================================================
+        // 3. PROJECT CRUD
+        // ============================================================
+        function getCurrentProjectData() {
+            return {
+                id: document.getElementById('projectId').value || generateProjectId(),
+                name: document.getElementById('projectName').value || 'Untitled',
+                client: document.getElementById('clientName').value || '',
+                event: document.getElementById('eventType').value || '',
+                date: document.getElementById('projectDate').value || new Date().toISOString().slice(0,10),
+                location: document.getElementById('projectLocation').value || '',
+                budget: totalBudget,
+                expenses: JSON.parse(JSON.stringify(expenseRows)),
+                notes: document.getElementById('notesArea').value || '',
+                status: 'active',
+                createdAt: new Date().toISOString()
+            };
+        }
+
+        function loadProject(projectId) {
+            const project = projects.find(p => p.id === projectId);
+            if (!project) return;
+
+            activeProjectId = projectId;
+            totalBudget = project.budget;
+            expenseRows = JSON.parse(JSON.stringify(project.expenses));
+            notes = project.notes || '';
+
+            // Update UI
+            document.getElementById('projectName').value = project.name || '';
+            document.getElementById('projectId').value = project.id || '';
+            document.getElementById('clientName').value = project.client || '';
+            document.getElementById('eventType').value = project.event || '';
+            document.getElementById('projectDate').value = project.date || new Date().toISOString().slice(0,10);
+            document.getElementById('projectLocation').value = project.location || '';
+            document.getElementById('notesArea').value = notes;
+            budgetInput.value = totalBudget;
+
+            render();
+            renderProjects();
+        }
+
+        function saveCurrentProject() {
+            const data = getCurrentProjectData();
+            const existing = projects.find(p => p.id === data.id);
+
+            if (existing) {
+                Object.assign(existing, data);
+                existing.updatedAt = new Date().toISOString();
+            } else {
+                data.id = data.id || generateProjectId();
+                data.createdAt = new Date().toISOString();
+                data.status = 'active';
+                projects.push(data);
+                document.getElementById('projectId').value = data.id;
+            }
+
+            activeProjectId = data.id;
+            renderProjects();
+            showToast('Project saved successfully!');
+        }
+
+        function deleteProject(projectId) {
+            if (!confirm('Delete this project?')) return;
+            projects = projects.filter(p => p.id !== projectId);
+            if (activeProjectId === projectId) {
+                activeProjectId = null;
+                // Reset to default state
+                expenseRows = JSON.parse(JSON.stringify(defaultExpenses));
+                totalBudget = 40000;
+                document.getElementById('projectName').value = 'New Project';
+                document.getElementById('projectId').value = generateProjectId();
+                document.getElementById('clientName').value = '';
+                document.getElementById('eventType').value = '';
+                document.getElementById('projectLocation').value = '';
+                document.getElementById('notesArea').value = '';
+                budgetInput.value = 40000;
+                render();
+            }
+            renderProjects();
+            showToast('Project deleted.');
+        }
+
+        function duplicateProject(projectId) {
+            const source = projects.find(p => p.id === projectId);
+            if (!source) return;
+
+            const newProject = JSON.parse(JSON.stringify(source));
+            newProject.id = generateProjectId();
+            newProject.name = `${source.name} (Copy)`;
+            newProject.createdAt = new Date().toISOString();
+            newProject.status = 'draft';
+            projects.push(newProject);
+            renderProjects();
+            loadProject(newProject.id);
+            showToast('Project duplicated!');
+        }
+
+        function createNewProject() {
+            const newProject = {
+                id: generateProjectId(),
+                name: 'New Project',
+                client: '',
+                event: '',
+                date: new Date().toISOString().slice(0,10),
+                location: '',
+                budget: 40000,
+                expenses: JSON.parse(JSON.stringify(defaultExpenses)),
+                notes: '',
+                status: 'draft',
+                createdAt: new Date().toISOString()
+            };
+            projects.push(newProject);
+            loadProject(newProject.id);
+            renderProjects();
+            showToast('New project created.');
+        }
+
+        // ============================================================
+        // 4. RENDER: PROJECTS LIST
+        // ============================================================
+        function renderProjects() {
+            if (projects.length === 0) {
+                projectsListEl.innerHTML = `
+                    <div class="empty-projects">
+                        <i class="fa-regular fa-folder-open"></i>
+                        <p>No projects yet. Click "New" to create one.</p>
+                    </div>
+                `;
+                projectCountEl.textContent = '0 projects';
+                return;
+            }
+
+            let html = '';
+            const sorted = [...projects].sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+
+            sorted.forEach(p => {
+                const isActive = p.id === activeProjectId;
+                const totalExp = p.expenses.reduce((sum, row) => sum + (parseFloat(row.amount) || 0), 0);
+                const balance = p.budget - totalExp;
+                const statusClass = p.status === 'active' ? 'status-active' : p.status === 'completed' ? 'status-completed' : 'status-draft';
+                const statusLabel = p.status.toUpperCase();
+
+                html += `
+                    <div class="project-item ${isActive ? 'active' : ''}" data-id="${p.id}">
+                        <div class="project-info">
+                            <div class="project-name">${p.name || 'Untitled'}</div>
+                            <div class="project-meta-sm">
+                                <span><i class="fa-regular fa-user"></i> ${p.client || 'No client'}</span>
+                                <span><i class="fa-regular fa-calendar"></i> ${p.date || '—'}</span>
+                                <span><i class="fa-regular fa-tag"></i> ${p.event || '—'}</span>
+                            </div>
+                        </div>
+                        <div class="project-stats">
+                            <div class="project-budget">${formatKSh(balance)}</div>
+                            <span class="project-status ${statusClass}">${statusLabel}</span>
+                        </div>
+                        <div class="project-actions-sm">
+                            <button class="load-project" title="Load project"><i class="fa-regular fa-folder-open"></i></button>
+                            <button class="duplicate-project" title="Duplicate"><i class="fa-regular fa-copy"></i></button>
+                            <button class="delete delete-project" title="Delete"><i class="fa-regular fa-trash-can"></i></button>
+                        </div>
+                    </div>
+                `;
+            });
+
+            projectsListEl.innerHTML = html;
+            projectCountEl.textContent = `${projects.length} project${projects.length > 1 ? 's' : ''}`;
+
+            // Attach events
+            projectsListEl.querySelectorAll('.project-item').forEach(item => {
+                const id = item.dataset.id;
+
+                // Load on click (except button clicks)
+                item.addEventListener('click', (e) => {
+                    if (e.target.closest('button')) return;
+                    loadProject(id);
+                });
+
+                item.querySelector('.load-project')?.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    loadProject(id);
+                });
+
+                item.querySelector('.duplicate-project')?.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    duplicateProject(id);
+                });
+
+                item.querySelector('.delete-project')?.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    deleteProject(id);
+                });
+            });
+        }
+
+        // ============================================================
+        // 5. RENDER: EXPENSES TABLE & METRICS
+        // ============================================================
         function render() {
+            // Build table rows
             tbody.innerHTML = '';
             expenseRows.forEach((row, index) => {
                 const tr = document.createElement('tr');
@@ -1113,26 +1476,25 @@
                     const idx = parseInt(this.dataset.index);
                     const val = parseFloat(this.value);
                     expenseRows[idx].amount = isNaN(val) ? 0 : val;
-                    updateDashboardMetrics();
+                    updateMetrics();
                 });
                 inp.addEventListener('blur', function() {
                     const val = parseFloat(this.value) || 0;
                     this.value = val.toFixed(2);
-                    updateDashboardMetrics();
+                    updateMetrics();
                 });
             });
 
             budgetInput.addEventListener('input', function() {
                 const val = parseFloat(this.value);
                 totalBudget = isNaN(val) || val < 0 ? 0 : val;
-                updateDashboardMetrics();
+                updateMetrics();
             });
 
-            updateDashboardMetrics();
+            updateMetrics();
         }
 
-        // ---------- Update all displays ----------
-        function updateDashboardMetrics() {
+        function updateMetrics() {
             const totalExp = getTotalExpenses();
             const balance = totalBudget - totalExp;
             const margin = totalBudget > 0 ? ((balance / totalBudget) * 100) : 0;
@@ -1144,8 +1506,6 @@
 
             const balanceNode = document.getElementById('summaryBalance');
             balanceNode.textContent = fmt(balance);
-
-            // Dynamic state: red if negative
             if (balance < 0) {
                 balanceNode.style.color = '#ff6b35';
                 balanceNode.style.textShadow = '0 0 15px rgba(255, 107, 53, 0.4)';
@@ -1160,56 +1520,173 @@
             document.getElementById('overviewMargin').textContent = `${Math.round(margin)}%`;
 
             const marginEl = document.getElementById('overviewMargin');
-            if (margin >= 30) {
-                marginEl.style.color = '#00fa9a';
-            } else if (margin >= 10) {
-                marginEl.style.color = '#d4af37';
-            } else {
-                marginEl.style.color = '#ff6b35';
-            }
+            if (margin >= 30) marginEl.style.color = '#00fa9a';
+            else if (margin >= 10) marginEl.style.color = '#d4af37';
+            else marginEl.style.color = '#ff6b35';
         }
 
-        // ---------- Add row ----------
-        function addRow() {
+        // ============================================================
+        // 6. TOAST NOTIFICATION
+        // ============================================================
+        function showToast(message) {
+            const existing = document.querySelector('.toast-notification');
+            if (existing) existing.remove();
+
+            const toast = document.createElement('div');
+            toast.className = 'toast-notification';
+            toast.style.cssText = `
+                position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%);
+                background: #1a1e24; color: #ffffff; padding: 12px 28px;
+                border-radius: 60px; border: 1px solid var(--gold-dim);
+                box-shadow: 0 8px 30px rgba(0,0,0,0.8);
+                font-family: var(--font-base); font-size: 0.9rem;
+                z-index: 9999; transition: 0.3s; opacity: 0;
+                pointer-events: none; backdrop-filter: blur(8px);
+                max-width: 90vw; text-align: center;
+            `;
+            toast.textContent = message;
+            document.body.appendChild(toast);
+
+            requestAnimationFrame(() => {
+                toast.style.opacity = '1';
+                toast.style.transform = 'translateX(-50%) translateY(0)';
+            });
+
+            setTimeout(() => {
+                toast.style.opacity = '0';
+                toast.style.transform = 'translateX(-50%) translateY(20px)';
+                setTimeout(() => toast.remove(), 400);
+            }, 2500);
+        }
+
+        // ============================================================
+        // 7. EVENT LISTENERS
+        // ============================================================
+        document.getElementById('addRowBtn').addEventListener('click', () => {
             expenseRows.push({ description: 'New item', amount: 0 });
             render();
-            // Scroll to bottom
             const lastInput = document.querySelector('.item-cost:last-of-type');
             if (lastInput) lastInput.focus();
-        }
+        });
 
-        // ---------- Reset rows ----------
-        function resetRows() {
-            expenseRows = JSON.parse(JSON.stringify(defaultExpenses));
-            render();
-        }
+        document.getElementById('resetRowsBtn').addEventListener('click', () => {
+            if (confirm('Reset expenses to default?')) {
+                expenseRows = JSON.parse(JSON.stringify(defaultExpenses));
+                render();
+            }
+        });
 
-        // ---------- Event listeners ----------
-        addRowBtn.addEventListener('click', addRow);
-        resetRowsBtn.addEventListener('click', resetRows);
+        document.getElementById('newProjectBtn').addEventListener('click', createNewProject);
+        document.getElementById('saveProjectBtn').addEventListener('click', saveCurrentProject);
+        document.getElementById('duplicateProjectBtn').addEventListener('click', () => {
+            if (activeProjectId) {
+                duplicateProject(activeProjectId);
+            } else {
+                showToast('Load a project first to duplicate.');
+            }
+        });
 
-        // ---------- Init ----------
+        // Save on any input change (auto-save)
+        ['projectName', 'clientName', 'eventType', 'projectLocation', 'projectDate', 'notesArea'].forEach(id => {
+            document.getElementById(id).addEventListener('input', () => {
+                // Just update state, auto-save is optional
+            });
+        });
+
+        // ============================================================
+        // 8. INIT
+        // ============================================================
+        // Set dates
         const now = new Date();
         const dateStr = now.toISOString().slice(0,10);
         document.querySelectorAll('input[type="date"]').forEach(inp => {
             if (!inp.value) inp.value = dateStr;
         });
 
+        // Seed with sample projects if empty
+        if (!localStorage.getItem('projects_seeded')) {
+            const sampleProjects = [
+                {
+                    id: generateProjectId(),
+                    name: 'Wedding Photography',
+                    client: 'The Mwangi Wedding',
+                    event: 'Wedding',
+                    date: '2026-07-13',
+                    location: 'Nairobi, Kenya',
+                    budget: 40000,
+                    expenses: JSON.parse(JSON.stringify(defaultExpenses)),
+                    notes: 'Premium coverage with 2 photographers, drone shots.',
+                    status: 'active',
+                    createdAt: new Date().toISOString()
+                },
+                {
+                    id: generateProjectId(),
+                    name: 'Corporate Event Shoot',
+                    client: 'TechCorp Ltd',
+                    event: 'Corporate',
+                    date: '2026-08-05',
+                    location: 'Nairobi, Kenya',
+                    budget: 75000,
+                    expenses: [
+                        { description: 'Video Camera', amount: 5000 },
+                        { description: 'Lighting Kit', amount: 3000 },
+                        { description: 'Audio Equipment', amount: 2000 },
+                        { description: 'Workers', amount: 4000 },
+                        { description: 'Transport', amount: 2500 },
+                        { description: 'Meals', amount: 1200 },
+                    ],
+                    notes: 'Full corporate event coverage with interviews.',
+                    status: 'completed',
+                    createdAt: new Date(Date.now() - 86400000).toISOString()
+                }
+            ];
+            projects = sampleProjects;
+            localStorage.setItem('projects_seeded', 'true');
+        }
+
+        // Load first project or create default
+        if (projects.length > 0) {
+            loadProject(projects[0].id);
+        } else {
+            // Create a default project
+            const defaultProject = {
+                id: generateProjectId(),
+                name: 'My First Project',
+                client: '',
+                event: '',
+                date: dateStr,
+                location: '',
+                budget: 40000,
+                expenses: JSON.parse(JSON.stringify(defaultExpenses)),
+                notes: '',
+                status: 'draft',
+                createdAt: new Date().toISOString()
+            };
+            projects.push(defaultProject);
+            loadProject(defaultProject.id);
+        }
+
+        renderProjects();
         render();
 
-        // ---------- PWA: Register service worker (simulated) ----------
+        // ============================================================
+        // 9. PWA: Service Worker registration
+        // ============================================================
         if ('serviceWorker' in navigator) {
             // In production, register a real sw.js
             console.log('🔧 PWA ready — service worker registration simulated.');
         }
 
-        // Handle offline/online status
+        // Handle online/offline
         window.addEventListener('online', () => {
-            document.querySelector('.app-container')?.style.setProperty('--green-neon', '#00fa9a');
+            showToast('🟢 Back online');
         });
         window.addEventListener('offline', () => {
-            document.querySelector('.app-container')?.style.setProperty('--green-neon', '#ff6b35');
+            showToast('🔴 Offline mode — changes saved locally');
         });
+
+        console.log('🚀 Sammax Cinema Production Budget Pro loaded.');
+        console.log(`📁 ${projects.length} projects available.`);
     });
 </script>
 </body>
