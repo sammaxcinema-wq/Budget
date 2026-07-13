@@ -7,15 +7,20 @@
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <meta name="apple-mobile-web-app-title" content="Sammax Budget" />
+    <meta name="description" content="Professional production budget tracker for filmmakers - Sammax Cinema" />
     
-    <!-- Web App Manifest (fixed: proper JSON, correct MIME, valid icons) -->
-    <link rel="manifest" href="data:application/json;charset=utf-8,%7B%22name%22%3A%22Sammax%20Cinema%20-%20Production%20Budget%22%2C%22short_name%22%3A%22Sammax%20Budget%22%2C%22description%22%3A%22Professional%20production%20budget%20tracker%20for%20filmmakers%22%2C%22start_url%22%3A%22.%22%2C%22display%22%3A%22standalone%22%2C%22background_color%22%3A%22%23060709%22%2C%22theme_color%22%3A%22%23d4af37%22%2C%22icons%22%3A%5B%7B%22src%22%3A%22data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20512%20512%22%3E%3Crect%20width%3D%22512%22%20height%3D%22512%22%20rx%3D%2260%22%20fill%3D%22%23060709%22%2F%3E%3Ctext%20x%3D%22256%22%20y%3D%22240%22%20text-anchor%3D%22middle%22%20font-family%3D%22Arial%2C%20sans-serif%22%20font-size%3D%22120%22%20font-weight%3D%22900%22%20fill%3D%22%23d4af37%22%3ES%3C%2Ftext%3E%3Ctext%20x%3D%22256%22%20y%3D%22340%22%20text-anchor%3D%22middle%22%20font-family%3D%22Arial%2C%20sans-serif%22%20font-size%3D%2236%22%20font-weight%3D%22300%22%20fill%3D%22%23ffffff%22%3ECINEMA%3C%2Ftext%3E%3C%2Fsvg%3E%22%2C%22sizes%22%3A%22512x512%22%2C%22type%22%3A%22image%2Fsvg%2Bxml%22%2C%22purpose%22%3A%22any%20maskable%22%7D%2C%7B%22src%22%3A%22data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20192%20192%22%3E%3Crect%20width%3D%22192%22%20height%3D%22192%22%20rx%3D%2224%22%20fill%3D%22%23060709%22%2F%3E%3Ctext%20x%3D%2296%22%20y%3D%2290%22%20text-anchor%3D%22middle%22%20font-family%3D%22Arial%2C%20sans-serif%22%20font-size%3D%2248%22%20font-weight%3D%22900%22%20fill%3D%22%23d4af37%22%3ES%3C%2Ftext%3E%3Ctext%20x%3D%2296%22%20y%3D%22130%22%20text-anchor%3D%22middle%22%20font-family%3D%22Arial%2C%20sans-serif%22%20font-size%3D%2214%22%20font-weight%3D%22300%22%20fill%3D%22%23ffffff%22%3ECINEMA%3C%2Ftext%3E%3C%2Fsvg%3E%22%2C%22sizes%22%3A%22192x192%22%2C%22type%22%3A%22image%2Fsvg%2Bxml%22%2C%22purpose%22%3A%22any%20maskable%22%7D%5D%7D" />
+    <!-- Web App Manifest -->
+    <link rel="manifest" href="/manifest.json" />
 
     <title>Sammax Cinema · Production Budget Pro</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800;14..32,900&display=swap" rel="stylesheet" />
+    
+    <!-- Apple Touch Icons -->
+    <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Crect width='512' height='512' rx='60' fill='%23060709'/%3E%3Ctext x='256' y='240' text-anchor='middle' font-family='Arial' font-size='120' font-weight='900' fill='%23d4af37'%3ES%3C/text%3E%3Ctext x='256' y='340' text-anchor='middle' font-family='Arial' font-size='36' font-weight='300' fill='%23ffffff'%3ECINEMA%3C/text%3E%3C/svg%3E" />
+    
     <style>
         /* ==========================================================================
            CORE DESIGN TOKENS
@@ -198,16 +203,31 @@
             gap: 8px;
             font-family: var(--font-base);
             box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2);
+            animation: pulse-install 2s infinite;
         }
+        
+        @keyframes pulse-install {
+            0%, 100% { box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2); }
+            50% { box-shadow: 0 4px 25px rgba(212, 175, 55, 0.5); }
+        }
+        
         .btn-install:hover {
             transform: translateY(-2px);
             box-shadow: 0 8px 25px rgba(212, 175, 55, 0.35);
+            animation: none;
         }
         .btn-install:active {
             transform: scale(0.97);
         }
         .btn-install.hidden {
             display: none !important;
+        }
+        
+        .btn-install.installed {
+            background: linear-gradient(135deg, #00fa9a 0%, #00c853 100%);
+            animation: none;
+            opacity: 0.8;
+            cursor: default;
         }
 
         .btn-sm {
@@ -236,6 +256,83 @@
         }
         .btn-sm.primary:hover {
             box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+        }
+
+        /* PWA Install Prompt Modal */
+        .install-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            z-index: 10000;
+            justify-content: center;
+            align-items: center;
+            backdrop-filter: blur(5px);
+        }
+        
+        .install-modal.show {
+            display: flex;
+        }
+        
+        .install-modal-content {
+            background: var(--panel-bg);
+            border: 2px solid var(--gold-solid);
+            border-radius: 20px;
+            padding: 30px;
+            max-width: 400px;
+            width: 90%;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.9);
+        }
+        
+        .install-modal-icon {
+            font-size: 60px;
+            margin-bottom: 15px;
+        }
+        
+        .install-modal h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: var(--gold-solid);
+        }
+        
+        .install-modal p {
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        
+        .install-modal-buttons {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .install-modal .btn-install-large {
+            background: var(--gold-metallic);
+            border: none;
+            color: #060709;
+            font-weight: 700;
+            padding: 12px 30px;
+            border-radius: 60px;
+            font-size: 1rem;
+            cursor: pointer;
+            font-family: var(--font-base);
+        }
+        
+        .install-modal .btn-cancel {
+            background: transparent;
+            border: 1px solid var(--text-muted);
+            color: var(--text-muted);
+            padding: 12px 30px;
+            border-radius: 60px;
+            font-size: 1rem;
+            cursor: pointer;
+            font-family: var(--font-base);
         }
 
         /* ==========================================================================
@@ -908,6 +1005,32 @@
             pointer-events: auto;
         }
 
+        /* Offline Banner */
+        .offline-banner {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: var(--orange-alert);
+            color: white;
+            text-align: center;
+            padding: 8px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            z-index: 10001;
+            animation: slideDown 0.3s ease-out;
+        }
+        
+        .offline-banner.show {
+            display: block;
+        }
+        
+        @keyframes slideDown {
+            from { transform: translateY(-100%); }
+            to { transform: translateY(0); }
+        }
+
         /* Utilities */
         input::-webkit-outer-spin-button,
         input::-webkit-inner-spin-button {
@@ -962,6 +1085,26 @@
     </style>
 </head>
 <body>
+
+<!-- Offline Banner -->
+<div class="offline-banner" id="offlineBanner">
+    <i class="fas fa-wifi"></i> You are offline - changes will sync when connected
+</div>
+
+<!-- Install Modal -->
+<div class="install-modal" id="installModal">
+    <div class="install-modal-content">
+        <div class="install-modal-icon">📱</div>
+        <h3>Install Sammax Budget</h3>
+        <p>Get quick access to your production budgets. Install this app on your device for the best experience.</p>
+        <div class="install-modal-buttons">
+            <button class="btn-install-large" id="modalInstallBtn">
+                <i class="fas fa-download"></i> Install Now
+            </button>
+            <button class="btn-cancel" id="modalCancelBtn">Maybe Later</button>
+        </div>
+    </div>
+</div>
 
 <div class="app-container" id="app">
     <!-- HEADER -->
@@ -1137,48 +1280,259 @@
 <script>
     document.addEventListener('DOMContentLoaded', () => {
         // ============================================================
-        // 1. PWA INSTALLATION (FIXED)
+        // PWA INSTALLATION SYSTEM
         // ============================================================
         let deferredPrompt = null;
         const installBtn = document.getElementById('installBtn');
-
+        const installModal = document.getElementById('installModal');
+        const modalInstallBtn = document.getElementById('modalInstallBtn');
+        const modalCancelBtn = document.getElementById('modalCancelBtn');
+        
+        // Check if already installed
+        function isAppInstalled() {
+            return window.matchMedia('(display-mode: standalone)').matches || 
+                   navigator.standalone || 
+                   document.referrer.includes('android-app://');
+        }
+        
+        // Update install button state
+        function updateInstallUI() {
+            if (isAppInstalled()) {
+                installBtn.classList.add('hidden');
+                installModal.classList.remove('show');
+            } else if (deferredPrompt) {
+                installBtn.classList.remove('hidden');
+                installBtn.innerHTML = '<i class="fas fa-download"></i> Install App';
+                installBtn.classList.remove('installed');
+                
+                // Show install modal after 5 seconds if not dismissed
+                setTimeout(() => {
+                    const modalDismissed = localStorage.getItem('pwa_modal_dismissed');
+                    if (!modalDismissed && !isAppInstalled() && deferredPrompt) {
+                        installModal.classList.add('show');
+                    }
+                }, 5000);
+            }
+        }
+        
         // Listen for the beforeinstallprompt event
         window.addEventListener('beforeinstallprompt', (e) => {
             e.preventDefault();
             deferredPrompt = e;
-            installBtn.classList.remove('hidden');
-            installBtn.innerHTML = '<i class="fas fa-download"></i> Install App';
+            updateInstallUI();
+            console.log('✅ PWA install prompt available');
         });
-
-        installBtn.addEventListener('click', async () => {
-            if (deferredPrompt) {
+        
+        // Install button click handler
+        async function triggerInstall() {
+            if (!deferredPrompt) {
+                showToast('📱 Installation not available. Try refreshing the page.');
+                return;
+            }
+            
+            try {
                 deferredPrompt.prompt();
                 const result = await deferredPrompt.userChoice;
+                
                 if (result.outcome === 'accepted') {
                     showToast('🎉 App installed successfully!');
                     installBtn.classList.add('hidden');
+                    installModal.classList.remove('show');
+                    localStorage.setItem('pwa_modal_dismissed', 'true');
                 } else {
-                    showToast('Installation declined.');
+                    showToast('Installation cancelled. You can install later.');
+                    installModal.classList.remove('show');
                 }
+                
                 deferredPrompt = null;
-            } else {
-                showToast('Installation not available. Try opening in Chrome.');
+                updateInstallUI();
+            } catch (error) {
+                console.error('Install error:', error);
+                showToast('❌ Installation failed. Please try again.');
             }
-        });
-
-        // Detect if already installed (standalone mode)
-        if (window.matchMedia('(display-mode: standalone)').matches) {
-            installBtn.classList.add('hidden');
         }
-
-        // Also hide if app is already installed
-        window.addEventListener('appinstalled', () => {
-            installBtn.classList.add('hidden');
-            showToast('✅ App installed successfully!');
+        
+        installBtn.addEventListener('click', triggerInstall);
+        modalInstallBtn.addEventListener('click', triggerInstall);
+        modalCancelBtn.addEventListener('click', () => {
+            installModal.classList.remove('show');
+            localStorage.setItem('pwa_modal_dismissed', 'true');
+            showToast('💡 You can install the app anytime from the header button.');
         });
-
+        
+        // Handle app installed event
+        window.addEventListener('appinstalled', () => {
+            deferredPrompt = null;
+            installBtn.classList.add('hidden');
+            installBtn.classList.add('installed');
+            installBtn.innerHTML = '<i class="fas fa-check"></i> Installed';
+            installModal.classList.remove('show');
+            showToast('✅ App installed successfully!');
+            console.log('✅ PWA installed');
+        });
+        
+        // Monitor online/offline status
+        const offlineBanner = document.getElementById('offlineBanner');
+        
+        function updateOnlineStatus() {
+            if (navigator.onLine) {
+                offlineBanner.classList.remove('show');
+                showToast('🌐 Back online! Changes will sync automatically.');
+            } else {
+                offlineBanner.classList.add('show');
+                showToast('📡 You are offline. Changes saved locally.');
+            }
+        }
+        
+        window.addEventListener('online', updateOnlineStatus);
+        window.addEventListener('offline', updateOnlineStatus);
+        
+        // Initial checks
+        if (!navigator.onLine) {
+            offlineBanner.classList.add('show');
+        }
+        
+        updateInstallUI();
+        
         // ============================================================
-        // 2. STATE
+        // SERVICE WORKER REGISTRATION
+        // ============================================================
+        if ('serviceWorker' in navigator) {
+            // Create manifest dynamically if it doesn't exist
+            const manifestData = {
+                name: "Sammax Cinema - Production Budget",
+                short_name: "Sammax Budget",
+                description: "Professional production budget tracker for filmmakers",
+                start_url: window.location.href,
+                display: "standalone",
+                background_color: "#060709",
+                theme_color: "#d4af37",
+                orientation: "any",
+                icons: [
+                    {
+                        src: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Crect width='512' height='512' rx='60' fill='%23060709'/%3E%3Ctext x='256' y='240' text-anchor='middle' font-family='Arial' font-size='120' font-weight='900' fill='%23d4af37'%3ES%3C/text%3E%3Ctext x='256' y='340' text-anchor='middle' font-family='Arial' font-size='36' font-weight='300' fill='%23ffffff'%3ECINEMA%3C/text%3E%3C/svg%3E",
+                        sizes: "512x512",
+                        type: "image/svg+xml",
+                        purpose: "any maskable"
+                    },
+                    {
+                        src: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'%3E%3Crect width='192' height='192' rx='24' fill='%23060709'/%3E%3Ctext x='96' y='90' text-anchor='middle' font-family='Arial' font-size='48' font-weight='900' fill='%23d4af37'%3ES%3C/text%3E%3Ctext x='96' y='130' text-anchor='middle' font-family='Arial' font-size='14' font-weight='300' fill='%23ffffff'%3ECINEMA%3C/text%3E%3C/svg%3E",
+                        sizes: "192x192",
+                        type: "image/svg+xml",
+                        purpose: "any maskable"
+                    }
+                ]
+            };
+            
+            const manifestBlob = new Blob([JSON.stringify(manifestData)], { type: 'application/json' });
+            const manifestUrl = URL.createObjectURL(manifestBlob);
+            
+            // Update manifest link
+            const manifestLink = document.querySelector('link[rel="manifest"]');
+            if (manifestLink) {
+                manifestLink.href = manifestUrl;
+            }
+            
+            // Register service worker with offline caching
+            const swCode = `
+                const CACHE_NAME = 'sammax-budget-v1';
+                const urlsToCache = [
+                    '/',
+                    self.location.href
+                ];
+                
+                self.addEventListener('install', event => {
+                    event.waitUntil(
+                        caches.open(CACHE_NAME)
+                            .then(cache => {
+                                console.log('📦 Caching app shell');
+                                return cache.addAll(urlsToCache);
+                            })
+                            .then(() => self.skipWaiting())
+                    );
+                });
+                
+                self.addEventListener('activate', event => {
+                    event.waitUntil(
+                        caches.keys().then(cacheNames => {
+                            return Promise.all(
+                                cacheNames.map(cacheName => {
+                                    if (cacheName !== CACHE_NAME) {
+                                        console.log('🗑️ Deleting old cache:', cacheName);
+                                        return caches.delete(cacheName);
+                                    }
+                                })
+                            );
+                        }).then(() => self.clients.claim())
+                    );
+                });
+                
+                self.addEventListener('fetch', event => {
+                    event.respondWith(
+                        caches.match(event.request)
+                            .then(response => {
+                                // Return cached response if available
+                                if (response) {
+                                    return response;
+                                }
+                                
+                                // Clone the request because it's a stream
+                                const fetchRequest = event.request.clone();
+                                
+                                return fetch(fetchRequest)
+                                    .then(response => {
+                                        // Check if valid response
+                                        if (!response || response.status !== 200 || response.type !== 'basic') {
+                                            return response;
+                                        }
+                                        
+                                        // Clone the response
+                                        const responseToCache = response.clone();
+                                        
+                                        caches.open(CACHE_NAME)
+                                            .then(cache => {
+                                                cache.put(event.request, responseToCache);
+                                            });
+                                        
+                                        return response;
+                                    })
+                                    .catch(() => {
+                                        // Return offline fallback
+                                        return caches.match('/');
+                                    });
+                            })
+                    );
+                });
+                
+                self.addEventListener('message', event => {
+                    if (event.data === 'skipWaiting') {
+                        self.skipWaiting();
+                    }
+                });
+            `;
+            
+            const swBlob = new Blob([swCode], { type: 'application/javascript' });
+            const swUrl = URL.createObjectURL(swBlob);
+            
+            navigator.serviceWorker.register(swUrl)
+                .then(registration => {
+                    console.log('🔧 Service Worker registered:', registration.scope);
+                    
+                    // Check for updates
+                    registration.addEventListener('updatefound', () => {
+                        const newWorker = registration.installing;
+                        newWorker.addEventListener('statechange', () => {
+                            if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                                showToast('🔄 New version available! Refresh to update.');
+                            }
+                        });
+                    });
+                })
+                .catch(err => console.log('⚠️ Service Worker registration failed:', err));
+        }
+        
+        // ============================================================
+        // STATE MANAGEMENT
         // ============================================================
         const defaultExpenses = [
             { description: 'Camera', amount: 2000 },
@@ -1209,8 +1563,34 @@
         const projectsListEl = document.getElementById('projectsList');
         const projectCountEl = document.getElementById('projectCount');
 
+        // Load from localStorage
+        function loadFromStorage() {
+            try {
+                const saved = localStorage.getItem('sammax_projects');
+                if (saved) {
+                    projects = JSON.parse(saved);
+                    if (projects.length > 0) {
+                        nextProjectId = Math.max(...projects.map(p => {
+                            const match = p.id?.match(/P-\d{8}-(\d{3})/);
+                            return match ? parseInt(match[1]) : 0;
+                        })) + 1;
+                    }
+                }
+            } catch (e) {
+                console.error('Error loading from storage:', e);
+            }
+        }
+        
+        function saveToStorage() {
+            try {
+                localStorage.setItem('sammax_projects', JSON.stringify(projects));
+            } catch (e) {
+                console.error('Error saving to storage:', e);
+            }
+        }
+
         // ============================================================
-        // 3. HELPERS
+        // HELPERS
         // ============================================================
         function getTotalExpenses() {
             return expenseRows.reduce((sum, row) => sum + (parseFloat(row.amount) || 0), 0);
@@ -1241,7 +1621,7 @@
         }
 
         // ============================================================
-        // 4. PROJECT CRUD
+        // PROJECT CRUD
         // ============================================================
         function getCurrentProjectData() {
             return {
@@ -1292,6 +1672,7 @@
                 document.getElementById('projectId').value = data.id;
             }
             activeProjectId = data.id;
+            saveToStorage();
             renderProjects();
             showToast('✅ Project saved!');
         }
@@ -1312,6 +1693,7 @@
                 budgetInput.value = 40000;
                 render();
             }
+            saveToStorage();
             renderProjects();
             showToast('🗑️ Project deleted.');
         }
@@ -1325,6 +1707,7 @@
             newProject.createdAt = new Date().toISOString();
             newProject.status = 'draft';
             projects.push(newProject);
+            saveToStorage();
             renderProjects();
             loadProject(newProject.id);
             showToast('📋 Project duplicated!');
@@ -1345,13 +1728,14 @@
                 createdAt: new Date().toISOString()
             };
             projects.push(newProject);
+            saveToStorage();
             loadProject(newProject.id);
             renderProjects();
             showToast('✨ New project created.');
         }
 
         // ============================================================
-        // 5. RENDER
+        // RENDER
         // ============================================================
         function renderProjects() {
             if (projects.length === 0) {
@@ -1499,7 +1883,7 @@
         }
 
         // ============================================================
-        // 6. EVENT LISTENERS
+        // EVENT LISTENERS
         // ============================================================
         document.getElementById('addRowBtn').addEventListener('click', () => {
             expenseRows.push({ description: 'New item', amount: 0 });
@@ -1527,8 +1911,24 @@
             setTimeout(() => showToast('✅ Sync complete!'), 1500);
         });
 
+        // Auto-save on changes
+        const autoSaveFields = ['projectName', 'clientName', 'eventType', 'projectLocation', 'notesArea', 'approvedBy'];
+        autoSaveFields.forEach(id => {
+            const el = document.getElementById(id);
+            if (el) {
+                el.addEventListener('change', () => {
+                    if (activeProjectId) saveCurrentProject();
+                });
+                if (el.tagName === 'TEXTAREA') {
+                    el.addEventListener('blur', () => {
+                        if (activeProjectId) saveCurrentProject();
+                    });
+                }
+            }
+        });
+
         // ============================================================
-        // 7. INIT
+        // INIT
         // ============================================================
         const now = new Date();
         const dateStr = now.toISOString().slice(0, 10);
@@ -1536,8 +1936,10 @@
             if (!inp.value) inp.value = dateStr;
         });
 
-        if (!localStorage.getItem('projects_seeded')) {
-            const sampleProjects = [{
+        loadFromStorage();
+
+        if (projects.length === 0) {
+            const sampleProject = {
                 id: generateProjectId(),
                 name: 'Wedding Photography',
                 client: 'The Mwangi Wedding',
@@ -1546,68 +1948,24 @@
                 location: 'Nairobi, Kenya',
                 budget: 40000,
                 expenses: JSON.parse(JSON.stringify(defaultExpenses)),
-                notes: 'Premium coverage with 2 photographers, drone shots.',
+                notes: 'Premium coverage with 2 photographers, drone cinematic shots, and full post-production.',
                 status: 'active',
                 createdAt: new Date().toISOString()
-            }];
-            projects = sampleProjects;
-            localStorage.setItem('projects_seeded', 'true');
+            };
+            projects.push(sampleProject);
+            saveToStorage();
         }
 
         if (projects.length > 0) {
             loadProject(projects[0].id);
-        } else {
-            const defaultProject = {
-                id: generateProjectId(),
-                name: 'My First Project',
-                client: '',
-                event: '',
-                date: dateStr,
-                location: '',
-                budget: 40000,
-                expenses: JSON.parse(JSON.stringify(defaultExpenses)),
-                notes: '',
-                status: 'draft',
-                createdAt: new Date().toISOString()
-            };
-            projects.push(defaultProject);
-            loadProject(defaultProject.id);
         }
 
         renderProjects();
         render();
 
-        // ============================================================
-        // 8. SERVICE WORKER (fixed: proper registration)
-        // ============================================================
-        if ('serviceWorker' in navigator) {
-            // Use a self-contained inline service worker via blob URL
-            const swCode = `
-                self.addEventListener('install', e => {
-                    e.waitUntil(
-                        caches.open('sammax-v1').then(cache => {
-                            return cache.addAll(['/']);
-                        })
-                    );
-                });
-                self.addEventListener('fetch', e => {
-                    e.respondWith(
-                        caches.match(e.request).then(response => {
-                            return response || fetch(e.request);
-                        })
-                    );
-                });
-            `;
-            const blob = new Blob([swCode], { type: 'application/javascript' });
-            const swUrl = URL.createObjectURL(blob);
-
-            navigator.serviceWorker.register(swUrl, { scope: '/' })
-                .then(() => console.log('🔧 Service Worker registered successfully.'))
-                .catch(err => console.log('⚠️ Service Worker registration failed:', err));
-        }
-
-        console.log('🚀 Sammax Cinema Production Budget Pro loaded.');
+        console.log('🚀 Sammax Cinema Production Budget Pro loaded with PWA support.');
         console.log(`📁 ${projects.length} projects available.`);
+        console.log(`📱 PWA Status: ${isAppInstalled() ? 'Installed' : 'Installable'}`);
     });
 </script>
 </body>
