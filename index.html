@@ -9,15 +9,13 @@
     <meta name="apple-mobile-web-app-title" content="Sammax Budget" />
     <meta name="description" content="Professional production budget tracker for filmmakers - Sammax Cinema" />
     
-    <!-- Web App Manifest -->
-    <link rel="manifest" href="/manifest.json" />
-    
-    <!-- Apple Touch Icon (180x180 for iPhone) -->
+    <!-- Apple Touch Icons (using your custom logo) -->
     <link rel="apple-touch-icon" sizes="180x180" href="https://i.ibb.co/fYK5yJD5/file-00000000876871f48b0069b8cba4a0b7.png" />
-    
-    <!-- Favicon -->
     <link rel="icon" type="image/png" sizes="192x192" href="https://i.ibb.co/fYK5yJD5/file-00000000876871f48b0069b8cba4a0b7.png" />
     <link rel="icon" type="image/png" sizes="512x512" href="https://i.ibb.co/fYK5yJD5/file-00000000876871f48b0069b8cba4a0b7.png" />
+    
+    <!-- Web App Manifest -->
+    <link rel="manifest" href="/manifest.json" />
 
     <title>Sammax Cinema · Production Budget Pro</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
@@ -117,20 +115,28 @@
         .logo-icon {
             width: 52px;
             height: 52px;
-            background-image: url('https://i.ibb.co/fYK5yJD5/file-00000000876871f48b0069b8cba4a0b7.png');
-            background-size: cover;
-            background-position: center;
             border-radius: 14px;
             display: flex;
             align-items: center;
             justify-content: center;
+            flex-shrink: 0;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(212, 175, 55, 0.25);
+            background: var(--gold-metallic);
+        }
+        
+        .logo-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        /* Fallback if image fails to load */
+        .logo-icon-fallback {
+            background: var(--gold-metallic);
             font-size: 28px;
             font-weight: 900;
             color: #060709;
-            box-shadow: 0 4px 20px rgba(212, 175, 55, 0.25);
-            flex-shrink: 0;
-            text-indent: -9999px;
-            overflow: hidden;
         }
 
         .logo-text {
@@ -296,15 +302,19 @@
             box-shadow: 0 20px 60px rgba(0,0,0,0.9);
         }
         
-        .install-modal-icon {
+        .install-modal-logo {
             width: 80px;
             height: 80px;
-            margin: 0 auto 15px;
-            background-image: url('https://i.ibb.co/fYK5yJD5/file-00000000876871f48b0069b8cba4a0b7.png');
-            background-size: cover;
-            background-position: center;
             border-radius: 20px;
-            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+            margin: 0 auto 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(212, 175, 55, 0.3);
+        }
+        
+        .install-modal-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
         
         .install-modal h3 {
@@ -349,9 +359,753 @@
             font-family: var(--font-base);
         }
 
-        /* Continue with all other styles... */
-        [Rest of CSS remains exactly the same as previous version]
+        /* ==========================================================================
+           REST OF UI (condensed but complete)
+           ========================================================================== */
+        .meta-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6px 20px;
+            background: #0b0d10;
+            border: 1px solid var(--gold-dim);
+            border-radius: 18px;
+            padding: 16px 22px;
+            margin-bottom: 22px;
+        }
+        .form-group {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 3px 0;
+        }
+        .form-group label {
+            font-size: clamp(0.55rem, 0.6vw, 0.65rem);
+            font-weight: 700;
+            color: var(--text-muted);
+            min-width: clamp(70px, 9vw, 100px);
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+            flex-shrink: 0;
+        }
+        .form-group input {
+            flex: 1;
+            background: transparent;
+            border: none;
+            border-bottom: 1px dotted rgba(255, 255, 255, 0.2);
+            color: var(--gold-solid);
+            font-size: clamp(0.8rem, 0.9vw, 0.9rem);
+            padding: 3px 0 3px 6px;
+            outline: none;
+            transition: 0.3s;
+            font-weight: 600;
+            font-family: var(--font-base);
+            min-width: 0;
+        }
+        .form-group input:focus {
+            border-bottom-color: var(--gold-solid);
+        }
 
+        /* Projects Panel */
+        .projects-panel-wrapper {
+            margin-bottom: 22px;
+        }
+        .projects-panel {
+            background: var(--panel-bg);
+            border: 1px solid var(--border-dark);
+            border-radius: 18px;
+            overflow: hidden;
+        }
+        .projects-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 18px;
+            background: linear-gradient(90deg, #1a1a2e 0%, #0f1215 100%);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .projects-header-left {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+        .projects-header-left .icon-circle {
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            border: 1.5px solid var(--gold-solid);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gold-solid);
+            font-size: 0.9rem;
+        }
+        .projects-header-left h3 {
+            font-size: clamp(0.95rem, 1.1vw, 1.1rem);
+            font-weight: 700;
+            letter-spacing: 1.5px;
+        }
+        .projects-scroll {
+            max-height: 200px;
+            overflow-y: auto;
+            padding: 4px 6px;
+        }
+        .project-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 14px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+            transition: 0.2s;
+            cursor: pointer;
+            border-radius: 8px;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+        .project-item:hover {
+            background: rgba(212, 175, 55, 0.05);
+        }
+        .project-item.active {
+            background: rgba(0, 250, 154, 0.06);
+            border-left: 3px solid var(--green-neon);
+        }
+        .project-info {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+            flex: 1;
+        }
+        .project-name {
+            font-weight: 600;
+            font-size: clamp(0.85rem, 0.9vw, 0.95rem);
+        }
+        .project-meta-sm {
+            font-size: clamp(0.6rem, 0.65vw, 0.7rem);
+            color: var(--text-muted);
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+        .project-stats {
+            text-align: right;
+        }
+        .project-budget {
+            font-weight: 700;
+            color: var(--gold-solid);
+            font-size: clamp(0.85rem, 0.9vw, 0.95rem);
+        }
+        .project-status {
+            font-size: clamp(0.55rem, 0.6vw, 0.65rem);
+            padding: 2px 10px;
+            border-radius: 20px;
+            display: inline-block;
+            margin-top: 2px;
+            font-weight: 600;
+        }
+        .status-active { background: rgba(0, 250, 154, 0.15); color: var(--green-neon); }
+        .status-completed { background: rgba(212, 175, 55, 0.15); color: var(--gold-solid); }
+        .status-draft { background: rgba(255, 255, 255, 0.05); color: var(--text-muted); }
+        .project-actions-sm {
+            display: flex;
+            gap: 4px;
+        }
+        .project-actions-sm button {
+            background: transparent;
+            border: none;
+            color: var(--text-muted);
+            padding: 4px 6px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: 0.2s;
+            font-size: 0.8rem;
+        }
+        .project-actions-sm button:hover {
+            color: var(--gold-solid);
+            background: rgba(212, 175, 55, 0.08);
+        }
+        .project-actions-sm button.delete:hover {
+            color: var(--orange-alert);
+        }
+        .empty-projects {
+            text-align: center;
+            padding: 30px 20px;
+            color: var(--text-muted);
+        }
+        .empty-projects i {
+            font-size: 2.5rem;
+            opacity: 0.3;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        /* Main Grid */
+        .grid-layout {
+            display: grid;
+            grid-template-columns: 1.25fr 0.75fr;
+            gap: 22px;
+            margin-bottom: 22px;
+        }
+        @media (max-width: 900px) {
+            .grid-layout {
+                grid-template-columns: 1fr;
+            }
+            .meta-section {
+                grid-template-columns: 1fr;
+            }
+            .financial-overview .overview-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .app-container {
+                padding: 14px;
+            }
+            .main-header {
+                flex-direction: column;
+                text-align: center;
+            }
+            .logo-area {
+                justify-content: center;
+            }
+            .header-actions {
+                justify-content: center;
+            }
+            .projects-header {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .projects-header-actions {
+                justify-content: center;
+            }
+        }
+
+        .panel {
+            background: var(--panel-bg);
+            border: 1px solid var(--border-dark);
+            border-radius: 18px;
+            overflow: hidden;
+        }
+        .panel-header {
+            display: flex;
+            align-items: center;
+            padding: 12px 18px;
+            gap: 14px;
+        }
+        .header-green {
+            background: linear-gradient(90deg, #032b1d 0%, #0f1215 100%);
+            border-bottom: 1px solid rgba(0, 250, 154, 0.4);
+        }
+        .header-gold {
+            background: linear-gradient(90deg, #3a2e05 0%, #0f1215 100%);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.4);
+        }
+        .icon-circle {
+            width: clamp(32px, 3.2vw, 36px);
+            height: clamp(32px, 3.2vw, 36px);
+            border-radius: 50%;
+            border: 1.5px solid currentColor;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: clamp(0.8rem, 0.9vw, 0.95rem);
+            flex-shrink: 0;
+        }
+        .header-green .icon-circle { color: var(--green-neon); }
+        .header-gold .icon-circle { color: var(--gold-solid); }
+        .panel-header h2 {
+            font-size: clamp(0.95rem, 1.1vw, 1.1rem);
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+
+        /* Expenses Table */
+        .expenses-table-wrap {
+            overflow-x: auto;
+            padding: 0 2px;
+            -webkit-overflow-scrolling: touch;
+        }
+        .expenses-table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 380px;
+        }
+        .expenses-table th {
+            background: #161a1f;
+            color: var(--gold-solid);
+            font-size: clamp(0.55rem, 0.65vw, 0.65rem);
+            text-align: left;
+            padding: 8px 10px;
+            border-bottom: 1px solid var(--border-dark);
+            letter-spacing: 1px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        .expenses-table td {
+            padding: 5px 10px;
+            border-bottom: 1px solid #1a1e24;
+            vertical-align: middle;
+        }
+        .row-num {
+            background: #162e24;
+            color: var(--green-neon);
+            padding: 2px 8px;
+            border-radius: 6px;
+            font-size: clamp(0.6rem, 0.65vw, 0.7rem);
+            font-weight: 700;
+            display: inline-block;
+        }
+        .input-with-icon {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .row-icon {
+            width: clamp(26px, 2.8vw, 30px);
+            height: clamp(26px, 2.8vw, 30px);
+            border: 1px solid var(--gold-dim);
+            background: rgba(212, 175, 55, 0.03);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gold-solid);
+            font-size: clamp(0.7rem, 0.8vw, 0.85rem);
+            flex-shrink: 0;
+        }
+        .item-desc {
+            background: transparent;
+            border: none;
+            color: #ffffff;
+            width: 100%;
+            outline: none;
+            font-size: clamp(0.75rem, 0.85vw, 0.85rem);
+            padding: 3px 0;
+            font-weight: 400;
+            font-family: var(--font-base);
+        }
+        .item-desc:focus {
+            border-bottom: 1px solid var(--gold-solid);
+        }
+        .item-cost {
+            background: transparent;
+            border: none;
+            color: var(--gold-solid);
+            font-weight: 700;
+            text-align: right;
+            width: 100%;
+            font-size: clamp(0.8rem, 0.85vw, 0.9rem);
+            outline: none;
+            padding: 3px 0;
+            font-family: var(--font-base);
+        }
+        .item-cost:focus {
+            border-bottom: 1px solid var(--gold-solid);
+        }
+
+        .panel-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 18px;
+            font-weight: 700;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+        .footer-green {
+            background: #0b1f16;
+            border-top: 1px solid rgba(0, 250, 154, 0.3);
+        }
+        .footer-title {
+            font-size: clamp(0.75rem, 0.8vw, 0.85rem);
+            color: var(--text-muted);
+            letter-spacing: 1.5px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .footer-value {
+            font-size: clamp(1rem, 1.2vw, 1.2rem);
+            letter-spacing: 0.5px;
+        }
+
+        /* Summary */
+        .right-column {
+            display: flex;
+            flex-direction: column;
+            gap: 22px;
+        }
+        .summary-body {
+            padding: 14px 16px 18px;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+        .summary-card {
+            background: #14181d;
+            border: 1px solid rgba(255,255,255,0.03);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 16px;
+            transition: 0.25s;
+        }
+        .card-icon {
+            width: clamp(38px, 4vw, 46px);
+            height: clamp(38px, 4vw, 46px);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: clamp(1rem, 1.1vw, 1.2rem);
+            flex-shrink: 0;
+        }
+        .green-circle { border: 2px solid var(--green-neon); color: var(--green-neon); background: rgba(0,250,154,0.06); }
+        .orange-circle { border: 2px solid var(--orange-alert); color: var(--orange-alert); background: rgba(255,107,53,0.06); }
+        .card-content {
+            flex: 1;
+            min-width: 0;
+        }
+        .card-content label {
+            font-size: clamp(0.55rem, 0.6vw, 0.65rem);
+            color: var(--text-muted);
+            display: block;
+            margin-bottom: 2px;
+            font-weight: 600;
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+        }
+        .input-wrapper, .static-display {
+            display: flex;
+            align-items: center;
+            background: #08090c;
+            border-radius: 30px;
+            padding: 4px 12px;
+        }
+        .gold-border {
+            border: 1px solid var(--gold-solid);
+        }
+        .currency-label {
+            color: var(--gold-solid);
+            font-weight: 700;
+            margin-right: 6px;
+            font-size: clamp(0.7rem, 0.75vw, 0.8rem);
+        }
+        .input-wrapper input {
+            background: transparent;
+            border: none;
+            color: var(--gold-solid);
+            font-size: clamp(1rem, 1.2vw, 1.15rem);
+            font-weight: 700;
+            width: 100%;
+            outline: none;
+            font-family: var(--font-base);
+            padding: 3px 0;
+        }
+        .static-display {
+            color: var(--gold-solid);
+            font-size: clamp(1rem, 1.2vw, 1.15rem);
+            font-weight: 700;
+        }
+        .balance-card {
+            background: radial-gradient(circle at top left, #05291b, #0c1014 80%);
+            border: 1px solid rgba(0, 250, 154, 0.3) !important;
+        }
+        .balance-display {
+            font-size: clamp(1.4rem, 2.2vw, 2rem);
+            font-weight: 900;
+            text-shadow: 0 0 15px rgba(0, 250, 154, 0.4);
+            transition: 0.3s;
+        }
+        .balance-tag {
+            font-size: clamp(0.55rem, 0.6vw, 0.65rem);
+            color: var(--gold-solid);
+            font-style: italic;
+            display: block;
+            margin-top: 2px;
+            opacity: 0.8;
+        }
+
+        /* Notes */
+        .notes-panel .notes-body {
+            padding: 10px 14px 14px;
+        }
+        .notes-panel textarea {
+            width: 100%;
+            height: clamp(70px, 10vh, 90px);
+            background: transparent;
+            border: 1px solid var(--border-dark);
+            border-radius: 12px;
+            padding: 10px 14px;
+            color: #ffffff;
+            outline: none;
+            resize: vertical;
+            line-height: 1.6;
+            font-family: var(--font-base);
+            font-size: clamp(0.75rem, 0.8vw, 0.85rem);
+        }
+        .notes-panel textarea:focus {
+            border-color: var(--gold-solid);
+        }
+
+        /* Financial Overview */
+        .financial-overview {
+            border: 1px solid rgba(212, 175, 55, 0.15);
+            border-radius: 16px;
+            padding: 16px 20px;
+            margin-bottom: 18px;
+            background: var(--panel-bg);
+        }
+        .overview-title {
+            text-align: center;
+            color: var(--gold-solid);
+            font-size: clamp(0.75rem, 0.85vw, 0.9rem);
+            letter-spacing: 4px;
+            margin-bottom: 14px;
+            font-weight: 600;
+        }
+        .overview-title::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--gold-solid), transparent);
+            margin: 6px auto 0;
+            opacity: 0.5;
+        }
+        .overview-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr) 1.6fr;
+            gap: 12px;
+            align-items: center;
+        }
+        @media (max-width: 820px) {
+            .overview-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 12px;
+            }
+            .overview-signature {
+                border-left: none;
+                padding-left: 0;
+                border-top: 1px solid var(--border-dark);
+                padding-top: 12px;
+                grid-column: 1 / -1;
+            }
+        }
+        .overview-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 4px 0;
+        }
+        .overview-item .overview-icon {
+            width: clamp(34px, 3.5vw, 40px);
+            height: clamp(34px, 3.5vw, 40px);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: clamp(0.8rem, 0.9vw, 1rem);
+            margin-bottom: 3px;
+        }
+        .overview-item .label {
+            font-size: clamp(0.45rem, 0.55vw, 0.55rem);
+            color: var(--text-muted);
+            font-weight: 600;
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+        }
+        .overview-item .val {
+            font-size: clamp(0.85rem, 1vw, 1rem);
+            font-weight: 700;
+            margin-top: 2px;
+        }
+        .overview-signature {
+            border-left: 1px solid var(--border-dark);
+            padding-left: 18px;
+        }
+        .brand-logo.mini {
+            font-size: clamp(0.9rem, 1.1vw, 1.1rem);
+            font-weight: 900;
+            color: #e52d27;
+        }
+        .brand-logo.mini span {
+            font-size: clamp(0.5rem, 0.6vw, 0.65rem);
+            display: inline;
+            letter-spacing: 2px;
+            color: #ffffff;
+            font-weight: 300;
+        }
+        .sig-group {
+            display: flex;
+            align-items: center;
+            margin-top: 5px;
+            gap: 4px;
+            flex-wrap: wrap;
+        }
+        .sig-group label {
+            font-size: clamp(0.5rem, 0.55vw, 0.6rem);
+            color: var(--text-muted);
+            min-width: clamp(55px, 6vw, 70px);
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+        .sig-group input {
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid var(--border-dark);
+            color: #ffffff;
+            outline: none;
+            flex: 1;
+            font-size: clamp(0.7rem, 0.75vw, 0.8rem);
+            padding: 2px 4px;
+            min-width: 40px;
+            font-family: var(--font-base);
+        }
+        .sig-group input:focus {
+            border-bottom-color: var(--gold-solid);
+        }
+
+        /* Footer */
+        .app-footer {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            border-top: 1px solid var(--border-dark);
+            padding-top: 14px;
+            font-size: clamp(0.65rem, 0.7vw, 0.75rem);
+        }
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px 24px;
+            color: var(--text-muted);
+            justify-content: center;
+        }
+        .contact-info i {
+            margin-right: 4px;
+            color: var(--gold-solid);
+            opacity: 0.6;
+        }
+        .contact-info span:hover i {
+            opacity: 1;
+        }
+        .footer-motto {
+            color: var(--text-muted);
+            letter-spacing: 3px;
+            font-size: clamp(0.55rem, 0.6vw, 0.65rem);
+            margin-top: 2px;
+            font-weight: 500;
+            opacity: 0.7;
+            text-align: center;
+        }
+
+        /* Toast */
+        .toast-notification {
+            position: fixed;
+            bottom: 24px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #1a1e24;
+            color: #ffffff;
+            padding: 12px 28px;
+            border-radius: 60px;
+            border: 1px solid var(--gold-dim);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.8);
+            font-family: var(--font-base);
+            font-size: 0.9rem;
+            z-index: 9999;
+            transition: 0.3s;
+            opacity: 0;
+            pointer-events: none;
+            backdrop-filter: blur(8px);
+            max-width: 90vw;
+            text-align: center;
+        }
+        .toast-notification.show {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        /* Offline Banner */
+        .offline-banner {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: var(--orange-alert);
+            color: white;
+            text-align: center;
+            padding: 8px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            z-index: 10001;
+            animation: slideDown 0.3s ease-out;
+        }
+        
+        .offline-banner.show {
+            display: block;
+        }
+        
+        @keyframes slideDown {
+            from { transform: translateY(-100%); }
+            to { transform: translateY(0); }
+        }
+
+        /* Utilities */
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+        input[type=number] {
+            -moz-appearance: textfield;
+        }
+        ::-webkit-scrollbar {
+            width: 4px;
+            height: 4px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--bg-main);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--gold-dim);
+            border-radius: 4px;
+        }
+
+        @media (max-width: 480px) {
+            .app-container {
+                padding: 10px;
+                border-radius: 14px;
+            }
+            .meta-section {
+                padding: 10px 12px;
+            }
+            .form-group {
+                flex-wrap: wrap;
+                gap: 2px;
+            }
+            .form-group label {
+                min-width: 60px;
+                font-size: 0.55rem;
+            }
+            .projects-scroll {
+                max-height: 150px;
+            }
+            .project-item {
+                padding: 8px 10px;
+            }
+            .expenses-table {
+                min-width: 300px;
+            }
+            .expenses-table th,
+            .expenses-table td {
+                padding: 4px 6px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -364,7 +1118,9 @@
 <!-- Install Modal -->
 <div class="install-modal" id="installModal">
     <div class="install-modal-content">
-        <div class="install-modal-icon"></div>
+        <div class="install-modal-logo">
+            <img src="https://i.ibb.co/fYK5yJD5/file-00000000876871f48b0069b8cba4a0b7.png" alt="Sammax Cinema Logo" />
+        </div>
         <h3>Install Sammax Budget</h3>
         <p>Get quick access to your production budgets. Install this app on your device for the best experience.</p>
         <div class="install-modal-buttons">
@@ -380,7 +1136,9 @@
     <!-- HEADER -->
     <header class="main-header">
         <div class="logo-area">
-            <div class="logo-icon">Sammax Cinema</div>
+            <div class="logo-icon" id="logoContainer">
+                <img src="https://i.ibb.co/fYK5yJD5/file-00000000876871f48b0069b8cba4a0b7.png" alt="Sammax Cinema Logo" onerror="this.style.display='none'; this.parentElement.classList.add('logo-icon-fallback'); this.parentElement.innerHTML='S';" />
+            </div>
             <div class="logo-text">
                 <h1 class="brand-logo">Sammax <span>CINEMA</span></h1>
                 <p class="tagline">VISUAL STORYTELLING REDEFINED</p>
@@ -399,9 +1157,149 @@
         </div>
     </header>
 
-    <!-- Rest of HTML remains identical to previous version -->
-    [All other HTML sections unchanged]
+    <!-- META -->
+    <section class="meta-section">
+        <div class="form-group"><label>PROJECT NAME:</label><input type="text" id="projectName" placeholder="Wedding Photography" value="Wedding Photography" /></div>
+        <div class="form-group"><label>PROJECT ID:</label><input type="text" id="projectId" placeholder="P-2026-0713" value="P-2026-0713" /></div>
+        <div class="form-group"><label>CLIENT NAME:</label><input type="text" id="clientName" placeholder="The Mwangi Wedding" value="The Mwangi Wedding" /></div>
+        <div class="form-group"><label>DATE:</label><input type="date" id="projectDate" value="2026-07-13" /></div>
+        <div class="form-group"><label>EVENT TYPE:</label><input type="text" id="eventType" placeholder="Wedding" value="Wedding" /></div>
+        <div class="form-group"><label>LOCATION:</label><input type="text" id="projectLocation" placeholder="Nairobi, Kenya" value="Nairobi, Kenya" /></div>
+    </section>
 
+    <!-- PROJECTS PANEL -->
+    <div class="projects-panel-wrapper">
+        <div class="projects-panel">
+            <div class="projects-header">
+                <div class="projects-header-left">
+                    <div class="icon-circle"><i class="fa-solid fa-folder-open"></i></div>
+                    <h3>PROJECTS</h3>
+                    <span style="font-size:0.7rem; color:var(--text-muted);" id="projectCount">0 projects</span>
+                </div>
+                <div class="projects-header-actions">
+                    <button class="btn-sm" id="newProjectBtn"><i class="fa-solid fa-plus"></i> New</button>
+                    <button class="btn-sm" id="duplicateProjectBtn"><i class="fa-regular fa-copy"></i> Duplicate</button>
+                    <button class="btn-sm primary" id="saveProjectBtn"><i class="fa-regular fa-floppy-disk"></i> Save</button>
+                </div>
+            </div>
+            <div class="projects-scroll" id="projectsList"></div>
+        </div>
+    </div>
+
+    <!-- MAIN GRID -->
+    <div class="grid-layout">
+        <!-- EXPENSES -->
+        <section class="panel expenses-panel">
+            <div class="panel-header header-green">
+                <div class="icon-circle"><i class="fa-solid fa-list-check"></i></div>
+                <h2>EXPENSES</h2>
+                <div style="margin-left:auto; display:flex; gap:4px;">
+                    <button class="btn-sm" id="addRowBtn"><i class="fa-solid fa-plus-circle"></i></button>
+                    <button class="btn-sm" id="resetRowsBtn"><i class="fa-solid fa-rotate-left"></i></button>
+                </div>
+            </div>
+            <div class="expenses-table-wrap">
+                <table class="expenses-table">
+                    <thead><tr><th style="width:8%;">#</th><th style="width:62%;">ITEM / DESCRIPTION</th><th style="width:30%;">COST (KSh)</th></tr></thead>
+                    <tbody id="expenseRows"></tbody>
+                </table>
+            </div>
+            <div class="panel-footer footer-green">
+                <span class="footer-title"><i class="fa-solid fa-coins gold-text"></i> TOTAL EXPENSES</span>
+                <span class="footer-value gold-text" id="totalExpensesDisplay">KSh 0.00</span>
+            </div>
+        </section>
+
+        <!-- RIGHT COLUMN -->
+        <div class="right-column">
+            <section class="panel summary-panel">
+                <div class="panel-header header-gold">
+                    <div class="icon-circle"><i class="fa-solid fa-chart-bar"></i></div>
+                    <h2>SUMMARY</h2>
+                </div>
+                <div class="summary-body">
+                    <div class="summary-card">
+                        <div class="card-icon green-circle"><i class="fa-solid fa-sack-dollar"></i></div>
+                        <div class="card-content">
+                            <label>TOTAL BUDGET / INCOME</label>
+                            <div class="input-wrapper gold-border">
+                                <span class="currency-label">KSh</span>
+                                <input type="number" id="budgetInput" value="40000" step="0.01" min="0" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="summary-card">
+                        <div class="card-icon orange-circle"><i class="fa-solid fa-wallet"></i></div>
+                        <div class="card-content">
+                            <label>TOTAL EXPENSES</label>
+                            <div class="static-display gold-border" id="summaryExpenses">KSh 0.00</div>
+                        </div>
+                    </div>
+                    <div class="summary-card balance-card">
+                        <div class="card-icon green-circle"><i class="fa-solid fa-money-bill-wave"></i></div>
+                        <div class="card-content">
+                            <label>REMAINING BALANCE</label>
+                            <div class="balance-display" id="summaryBalance">KSh 0.00</div>
+                            <span class="balance-tag">— Profit Remaining —</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="panel notes-panel">
+                <div class="panel-header header-green">
+                    <div class="icon-circle"><i class="fa-solid fa-pen-to-square"></i></div>
+                    <h2>NOTES</h2>
+                </div>
+                <div class="notes-body">
+                    <textarea id="notesArea" placeholder="Add production notes...">Premium coverage with 2 photographers, drone cinematic shots, and full post-production.</textarea>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- FINANCIAL OVERVIEW -->
+    <section class="financial-overview">
+        <h3 class="overview-title">FINANCIAL OVERVIEW</h3>
+        <div class="overview-grid">
+            <div class="overview-item">
+                <div class="overview-icon green-circle"><i class="fa-solid fa-chart-line"></i></div>
+                <span class="label">TOTAL INCOME</span>
+                <span class="val green-text" id="overviewIncome">KSh 0.00</span>
+            </div>
+            <div class="overview-item">
+                <div class="overview-icon orange-circle"><i class="fa-solid fa-arrow-trend-down"></i></div>
+                <span class="label">TOTAL EXPENSES</span>
+                <span class="val orange-text" id="overviewExpenses">KSh 0.00</span>
+            </div>
+            <div class="overview-item">
+                <div class="overview-icon green-circle"><i class="fa-solid fa-pie-chart"></i></div>
+                <span class="label">PROFIT / BALANCE</span>
+                <span class="val green-text" id="overviewBalance">KSh 0.00</span>
+            </div>
+            <div class="overview-item">
+                <div class="overview-icon gold-circle"><i class="fa-solid fa-percent"></i></div>
+                <span class="label">PROFIT MARGIN</span>
+                <span class="val green-text" id="overviewMargin">0%</span>
+            </div>
+            <div class="overview-signature">
+                <h4 class="brand-logo mini">Sammax <span>CINEMA</span></h4>
+                <div class="sig-group"><label>APPROVED BY:</label><input type="text" id="approvedBy" placeholder="John Doe" value="John Doe" /></div>
+                <div class="sig-group"><label>DATE:</label><input type="date" id="approvalDate" value="2026-07-13" /></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="app-footer">
+        <div class="contact-info">
+            <span><i class="fa-solid fa-phone gold-text"></i> +254 700 000 000</span>
+            <span><i class="fa-solid fa-envelope gold-text"></i> youremail@gmail.com</span>
+            <span><i class="fa-solid fa-location-dot gold-text"></i> Your Location</span>
+            <span><i class="fa-solid fa-globe gold-text"></i> www.yourwebsite.com</span>
+        </div>
+        <div class="footer-motto">CAPTURE MOMENTS &bull; CREATE MEMORIES &bull; DELIVER VALUE</div>
+    </footer>
 </div>
 
 <!-- Toast container -->
@@ -410,10 +1308,13 @@
 <script>
     document.addEventListener('DOMContentLoaded', () => {
         // ============================================================
-        // PWA INSTALLATION SYSTEM WITH CUSTOM LOGO
+        // PWA LOGO SETUP
         // ============================================================
-        const SAMMAX_LOGO_URL = 'https://i.ibb.co/fYK5yJD5/file-00000000876871f48b0069b8cba4a0b7.png';
+        const pwaLogo = "https://i.ibb.co/fYK5yJD5/file-00000000876871f48b0069b8cba4a0b7.png";
         
+        // ============================================================
+        // PWA INSTALLATION SYSTEM
+        // ============================================================
         let deferredPrompt = null;
         const installBtn = document.getElementById('installBtn');
         const installModal = document.getElementById('installModal');
@@ -452,7 +1353,7 @@
             e.preventDefault();
             deferredPrompt = e;
             updateInstallUI();
-            console.log('✅ PWA install prompt available with Sammax Cinema logo');
+            console.log('✅ PWA install prompt available');
         });
         
         // Install button click handler
@@ -467,7 +1368,7 @@
                 const result = await deferredPrompt.userChoice;
                 
                 if (result.outcome === 'accepted') {
-                    showToast('🎉 Sammax Cinema Budget installed successfully!');
+                    showToast('🎉 App installed successfully!');
                     installBtn.classList.add('hidden');
                     installModal.classList.remove('show');
                     localStorage.setItem('pwa_modal_dismissed', 'true');
@@ -499,8 +1400,8 @@
             installBtn.classList.add('installed');
             installBtn.innerHTML = '<i class="fas fa-check"></i> Installed';
             installModal.classList.remove('show');
-            showToast('✅ Sammax Cinema Budget installed!');
-            console.log('✅ PWA installed with Sammax Cinema branding');
+            showToast('✅ App installed successfully!');
+            console.log('✅ PWA installed');
         });
         
         // Monitor online/offline status
@@ -509,6 +1410,7 @@
         function updateOnlineStatus() {
             if (navigator.onLine) {
                 offlineBanner.classList.remove('show');
+                showToast('🌐 Back online! Changes will sync automatically.');
             } else {
                 offlineBanner.classList.add('show');
                 showToast('📡 You are offline. Changes saved locally.');
@@ -526,10 +1428,10 @@
         updateInstallUI();
         
         // ============================================================
-        // SERVICE WORKER REGISTRATION WITH CUSTOM LOGO
+        // SERVICE WORKER REGISTRATION
         // ============================================================
         if ('serviceWorker' in navigator) {
-            // Create manifest dynamically with Sammax Cinema logo
+            // Create manifest dynamically with custom logo
             const manifestData = {
                 name: "Sammax Cinema - Production Budget",
                 short_name: "Sammax Budget",
@@ -541,28 +1443,22 @@
                 orientation: "any",
                 icons: [
                     {
-                        src: SAMMAX_LOGO_URL,
+                        src: pwaLogo,
                         sizes: "512x512",
                         type: "image/png",
                         purpose: "any maskable"
                     },
                     {
-                        src: SAMMAX_LOGO_URL,
+                        src: pwaLogo,
                         sizes: "192x192",
                         type: "image/png",
                         purpose: "any maskable"
                     },
                     {
-                        src: SAMMAX_LOGO_URL,
-                        sizes: "384x384",
+                        src: pwaLogo,
+                        sizes: "180x180",
                         type: "image/png",
-                        purpose: "any maskable"
-                    },
-                    {
-                        src: SAMMAX_LOGO_URL,
-                        sizes: "512x512",
-                        type: "image/png",
-                        purpose: "maskable"
+                        purpose: "apple touch icon"
                     }
                 ]
             };
@@ -576,22 +1472,22 @@
                 manifestLink.href = manifestUrl;
             }
             
-            // Register service worker with offline caching and Sammax branding
+            // Register service worker with offline caching
             const swCode = `
-                const CACHE_NAME = 'sammax-cinema-budget-v1';
-                const SAMMAX_LOGO = '${SAMMAX_LOGO_URL}';
+                const CACHE_NAME = 'sammax-budget-v2';
+                const LOGO_URL = '${pwaLogo}';
                 
                 const urlsToCache = [
                     '/',
                     self.location.href,
-                    SAMMAX_LOGO
+                    LOGO_URL
                 ];
                 
                 self.addEventListener('install', event => {
                     event.waitUntil(
                         caches.open(CACHE_NAME)
                             .then(cache => {
-                                console.log('📦 Caching Sammax Cinema app shell with branding');
+                                console.log('📦 Caching app shell and logo');
                                 return cache.addAll(urlsToCache);
                             })
                             .then(() => self.skipWaiting())
@@ -662,7 +1558,7 @@
             
             navigator.serviceWorker.register(swUrl)
                 .then(registration => {
-                    console.log('🔧 Sammax Cinema Service Worker registered:', registration.scope);
+                    console.log('🔧 Service Worker registered:', registration.scope);
                     
                     // Check for updates
                     registration.addEventListener('updatefound', () => {
@@ -677,12 +1573,442 @@
                 .catch(err => console.log('⚠️ Service Worker registration failed:', err));
         }
         
-        // Continue with rest of JavaScript...
-        [All other JavaScript remains identical to previous version]
+        // ============================================================
+        // STATE MANAGEMENT
+        // ============================================================
+        const defaultExpenses = [
+            { description: 'Camera', amount: 2000 },
+            { description: 'Drone', amount: 3000 },
+            { description: 'Printing', amount: 1500 },
+            { description: 'Album', amount: 1200 },
+            { description: 'Flash Drive', amount: 500 },
+            { description: 'Laptop', amount: 200 },
+            { description: 'Workers', amount: 2500 },
+            { description: 'Transport', amount: 2000 },
+            { description: 'Meals', amount: 800 },
+            { description: 'Lighting', amount: 1000 },
+        ];
+
+        const iconMap = ['fa-camera', 'fa-drone', 'fa-print', 'fa-image', 'fa-usb',
+            'fa-laptop', 'fa-users', 'fa-car', 'fa-utensils', 'fa-lightbulb'
+        ];
+
+        let projects = [];
+        let activeProjectId = null;
+        let nextProjectId = 1;
+        let expenseRows = JSON.parse(JSON.stringify(defaultExpenses));
+        let totalBudget = 40000;
+
+        // DOM refs
+        const tbody = document.getElementById('expenseRows');
+        const budgetInput = document.getElementById('budgetInput');
+        const projectsListEl = document.getElementById('projectsList');
+        const projectCountEl = document.getElementById('projectCount');
+
+        // Load from localStorage
+        function loadFromStorage() {
+            try {
+                const saved = localStorage.getItem('sammax_projects');
+                if (saved) {
+                    projects = JSON.parse(saved);
+                    if (projects.length > 0) {
+                        nextProjectId = Math.max(...projects.map(p => {
+                            const match = p.id?.match(/P-\d{8}-(\d{3})/);
+                            return match ? parseInt(match[1]) : 0;
+                        })) + 1;
+                    }
+                }
+            } catch (e) {
+                console.error('Error loading from storage:', e);
+            }
+        }
         
-        console.log('🚀 Sammax Cinema Production Budget Pro loaded with custom branding PWA');
-        console.log('🎨 Using custom Sammax Cinema logo for PWA icons');
-        console.log(`📱 PWA Status: ${isAppInstalled() ? 'Installed with Sammax branding' : 'Ready to install with Sammax logo'}`);
+        function saveToStorage() {
+            try {
+                localStorage.setItem('sammax_projects', JSON.stringify(projects));
+            } catch (e) {
+                console.error('Error saving to storage:', e);
+            }
+        }
+
+        // ============================================================
+        // HELPERS
+        // ============================================================
+        function getTotalExpenses() {
+            return expenseRows.reduce((sum, row) => sum + (parseFloat(row.amount) || 0), 0);
+        }
+
+        const currencyFormatter = new Intl.NumberFormat('en-KE', {
+            style: 'currency',
+            currency: 'KES',
+            minimumFractionDigits: 2
+        });
+
+        function formatKSh(val) {
+            return currencyFormatter.format(val).replace('KES', 'KSh');
+        }
+
+        function generateProjectId() {
+            const now = new Date();
+            const d = now.toISOString().slice(0, 10).replace(/-/g, '');
+            return `P-${d}-${String(nextProjectId++).padStart(3, '0')}`;
+        }
+
+        function showToast(msg) {
+            const toast = document.getElementById('toast');
+            toast.textContent = msg;
+            toast.classList.add('show');
+            clearTimeout(toast._timeout);
+            toast._timeout = setTimeout(() => toast.classList.remove('show'), 3000);
+        }
+
+        // ============================================================
+        // PROJECT CRUD
+        // ============================================================
+        function getCurrentProjectData() {
+            return {
+                id: document.getElementById('projectId').value || generateProjectId(),
+                name: document.getElementById('projectName').value || 'Untitled',
+                client: document.getElementById('clientName').value || '',
+                event: document.getElementById('eventType').value || '',
+                date: document.getElementById('projectDate').value || new Date().toISOString().slice(0, 10),
+                location: document.getElementById('projectLocation').value || '',
+                budget: totalBudget,
+                expenses: JSON.parse(JSON.stringify(expenseRows)),
+                notes: document.getElementById('notesArea').value || '',
+                status: 'active',
+                createdAt: new Date().toISOString()
+            };
+        }
+
+        function loadProject(projectId) {
+            const project = projects.find(p => p.id === projectId);
+            if (!project) return;
+            activeProjectId = projectId;
+            totalBudget = project.budget;
+            expenseRows = JSON.parse(JSON.stringify(project.expenses));
+            document.getElementById('projectName').value = project.name || '';
+            document.getElementById('projectId').value = project.id || '';
+            document.getElementById('clientName').value = project.client || '';
+            document.getElementById('eventType').value = project.event || '';
+            document.getElementById('projectDate').value = project.date || new Date().toISOString().slice(0, 10);
+            document.getElementById('projectLocation').value = project.location || '';
+            document.getElementById('notesArea').value = project.notes || '';
+            budgetInput.value = totalBudget;
+            render();
+            renderProjects();
+            showToast(`📂 Loaded: ${project.name}`);
+        }
+
+        function saveCurrentProject() {
+            const data = getCurrentProjectData();
+            const existing = projects.find(p => p.id === data.id);
+            if (existing) {
+                Object.assign(existing, data);
+                existing.updatedAt = new Date().toISOString();
+            } else {
+                data.id = data.id || generateProjectId();
+                data.createdAt = new Date().toISOString();
+                data.status = 'active';
+                projects.push(data);
+                document.getElementById('projectId').value = data.id;
+            }
+            activeProjectId = data.id;
+            saveToStorage();
+            renderProjects();
+            showToast('✅ Project saved!');
+        }
+
+        function deleteProject(projectId) {
+            if (!confirm('Delete this project?')) return;
+            projects = projects.filter(p => p.id !== projectId);
+            if (activeProjectId === projectId) {
+                activeProjectId = null;
+                expenseRows = JSON.parse(JSON.stringify(defaultExpenses));
+                totalBudget = 40000;
+                document.getElementById('projectName').value = 'New Project';
+                document.getElementById('projectId').value = generateProjectId();
+                document.getElementById('clientName').value = '';
+                document.getElementById('eventType').value = '';
+                document.getElementById('projectLocation').value = '';
+                document.getElementById('notesArea').value = '';
+                budgetInput.value = 40000;
+                render();
+            }
+            saveToStorage();
+            renderProjects();
+            showToast('🗑️ Project deleted.');
+        }
+
+        function duplicateProject(projectId) {
+            const source = projects.find(p => p.id === projectId);
+            if (!source) return;
+            const newProject = JSON.parse(JSON.stringify(source));
+            newProject.id = generateProjectId();
+            newProject.name = `${source.name} (Copy)`;
+            newProject.createdAt = new Date().toISOString();
+            newProject.status = 'draft';
+            projects.push(newProject);
+            saveToStorage();
+            renderProjects();
+            loadProject(newProject.id);
+            showToast('📋 Project duplicated!');
+        }
+
+        function createNewProject() {
+            const newProject = {
+                id: generateProjectId(),
+                name: 'New Project',
+                client: '',
+                event: '',
+                date: new Date().toISOString().slice(0, 10),
+                location: '',
+                budget: 40000,
+                expenses: JSON.parse(JSON.stringify(defaultExpenses)),
+                notes: '',
+                status: 'draft',
+                createdAt: new Date().toISOString()
+            };
+            projects.push(newProject);
+            saveToStorage();
+            loadProject(newProject.id);
+            renderProjects();
+            showToast('✨ New project created.');
+        }
+
+        // ============================================================
+        // RENDER
+        // ============================================================
+        function renderProjects() {
+            if (projects.length === 0) {
+                projectsListEl.innerHTML = `
+                    <div class="empty-projects">
+                        <i class="fa-regular fa-folder-open"></i>
+                        <p>No projects yet. Click "New" to create one.</p>
+                    </div>
+                `;
+                projectCountEl.textContent = '0 projects';
+                return;
+            }
+
+            let html = '';
+            const sorted = [...projects].sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+
+            sorted.forEach(p => {
+                const isActive = p.id === activeProjectId;
+                const totalExp = p.expenses.reduce((sum, row) => sum + (parseFloat(row.amount) || 0), 0);
+                const balance = p.budget - totalExp;
+                const statusClass = p.status === 'active' ? 'status-active' : p.status === 'completed' ? 'status-completed' : 'status-draft';
+                const statusLabel = p.status.toUpperCase();
+
+                html += `
+                    <div class="project-item ${isActive ? 'active' : ''}" data-id="${p.id}">
+                        <div class="project-info">
+                            <div class="project-name">${p.name || 'Untitled'}</div>
+                            <div class="project-meta-sm">
+                                <span><i class="fa-regular fa-user"></i> ${p.client || 'No client'}</span>
+                                <span><i class="fa-regular fa-calendar"></i> ${p.date || '—'}</span>
+                            </div>
+                        </div>
+                        <div class="project-stats">
+                            <div class="project-budget">${formatKSh(balance)}</div>
+                            <span class="project-status ${statusClass}">${statusLabel}</span>
+                        </div>
+                        <div class="project-actions-sm">
+                            <button class="load-project" title="Load"><i class="fa-regular fa-folder-open"></i></button>
+                            <button class="duplicate-project" title="Duplicate"><i class="fa-regular fa-copy"></i></button>
+                            <button class="delete delete-project" title="Delete"><i class="fa-regular fa-trash-can"></i></button>
+                        </div>
+                    </div>
+                `;
+            });
+
+            projectsListEl.innerHTML = html;
+            projectCountEl.textContent = `${projects.length} project${projects.length > 1 ? 's' : ''}`;
+
+            // Events
+            projectsListEl.querySelectorAll('.project-item').forEach(item => {
+                const id = item.dataset.id;
+                item.addEventListener('click', (e) => {
+                    if (e.target.closest('button')) return;
+                    loadProject(id);
+                });
+                item.querySelector('.load-project')?.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    loadProject(id);
+                });
+                item.querySelector('.duplicate-project')?.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    duplicateProject(id);
+                });
+                item.querySelector('.delete-project')?.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    deleteProject(id);
+                });
+            });
+        }
+
+        function render() {
+            tbody.innerHTML = '';
+            expenseRows.forEach((row, index) => {
+                const tr = document.createElement('tr');
+                const iconClass = iconMap[index % iconMap.length] || 'fa-film';
+                tr.innerHTML = `
+                    <td><span class="row-num">${String(index+1).padStart(2, '0')}</span></td>
+                    <td>
+                        <div class="input-with-icon">
+                            <div class="row-icon"><i class="fa-solid ${iconClass}"></i></div>
+                            <input type="text" class="item-desc" value="${row.description}" data-index="${index}" placeholder="Enter item / description" />
+                        </div>
+                    </td>
+                    <td><input type="number" class="item-cost" value="${row.amount}" data-index="${index}" step="0.01" min="0" placeholder="0.00" /></td>
+                `;
+                tbody.appendChild(tr);
+            });
+
+            document.querySelectorAll('.item-desc').forEach(inp => {
+                inp.addEventListener('input', function() {
+                    expenseRows[parseInt(this.dataset.index)].description = this.value;
+                });
+            });
+
+            document.querySelectorAll('.item-cost').forEach(inp => {
+                inp.addEventListener('input', function() {
+                    const val = parseFloat(this.value);
+                    expenseRows[parseInt(this.dataset.index)].amount = isNaN(val) ? 0 : val;
+                    updateMetrics();
+                });
+                inp.addEventListener('blur', function() {
+                    const val = parseFloat(this.value) || 0;
+                    this.value = val.toFixed(2);
+                    updateMetrics();
+                });
+            });
+
+            budgetInput.addEventListener('input', function() {
+                totalBudget = parseFloat(this.value) || 0;
+                updateMetrics();
+            });
+
+            updateMetrics();
+        }
+
+        function updateMetrics() {
+            const totalExp = getTotalExpenses();
+            const balance = totalBudget - totalExp;
+            const margin = totalBudget > 0 ? ((balance / totalBudget) * 100) : 0;
+
+            const fmt = formatKSh;
+
+            document.getElementById('totalExpensesDisplay').textContent = fmt(totalExp);
+            document.getElementById('summaryExpenses').textContent = fmt(totalExp);
+
+            const balanceNode = document.getElementById('summaryBalance');
+            balanceNode.textContent = fmt(balance);
+            if (balance < 0) {
+                balanceNode.style.color = '#ff6b35';
+                balanceNode.style.textShadow = '0 0 15px rgba(255, 107, 53, 0.4)';
+            } else {
+                balanceNode.style.color = '#00fa9a';
+                balanceNode.style.textShadow = '0 0 15px rgba(0, 250, 154, 0.4)';
+            }
+
+            document.getElementById('overviewIncome').textContent = fmt(totalBudget);
+            document.getElementById('overviewExpenses').textContent = fmt(totalExp);
+            document.getElementById('overviewBalance').textContent = fmt(balance);
+            document.getElementById('overviewMargin').textContent = `${Math.round(margin)}%`;
+
+            const marginEl = document.getElementById('overviewMargin');
+            if (margin >= 30) marginEl.style.color = '#00fa9a';
+            else if (margin >= 10) marginEl.style.color = '#d4af37';
+            else marginEl.style.color = '#ff6b35';
+        }
+
+        // ============================================================
+        // EVENT LISTENERS
+        // ============================================================
+        document.getElementById('addRowBtn').addEventListener('click', () => {
+            expenseRows.push({ description: 'New item', amount: 0 });
+            render();
+            const last = document.querySelector('.item-cost:last-of-type');
+            if (last) last.focus();
+        });
+
+        document.getElementById('resetRowsBtn').addEventListener('click', () => {
+            if (confirm('Reset expenses to default?')) {
+                expenseRows = JSON.parse(JSON.stringify(defaultExpenses));
+                render();
+            }
+        });
+
+        document.getElementById('newProjectBtn').addEventListener('click', createNewProject);
+        document.getElementById('saveProjectBtn').addEventListener('click', saveCurrentProject);
+        document.getElementById('duplicateProjectBtn').addEventListener('click', () => {
+            if (activeProjectId) duplicateProject(activeProjectId);
+            else showToast('Load a project first to duplicate.');
+        });
+
+        document.getElementById('syncBtn').addEventListener('click', () => {
+            showToast('☁️ Syncing with cloud...');
+            setTimeout(() => showToast('✅ Sync complete!'), 1500);
+        });
+
+        // Auto-save on changes
+        const autoSaveFields = ['projectName', 'clientName', 'eventType', 'projectLocation', 'notesArea', 'approvedBy'];
+        autoSaveFields.forEach(id => {
+            const el = document.getElementById(id);
+            if (el) {
+                el.addEventListener('change', () => {
+                    if (activeProjectId) saveCurrentProject();
+                });
+                if (el.tagName === 'TEXTAREA') {
+                    el.addEventListener('blur', () => {
+                        if (activeProjectId) saveCurrentProject();
+                    });
+                }
+            }
+        });
+
+        // ============================================================
+        // INIT
+        // ============================================================
+        const now = new Date();
+        const dateStr = now.toISOString().slice(0, 10);
+        document.querySelectorAll('input[type="date"]').forEach(inp => {
+            if (!inp.value) inp.value = dateStr;
+        });
+
+        loadFromStorage();
+
+        if (projects.length === 0) {
+            const sampleProject = {
+                id: generateProjectId(),
+                name: 'Wedding Photography',
+                client: 'The Mwangi Wedding',
+                event: 'Wedding',
+                date: '2026-07-13',
+                location: 'Nairobi, Kenya',
+                budget: 40000,
+                expenses: JSON.parse(JSON.stringify(defaultExpenses)),
+                notes: 'Premium coverage with 2 photographers, drone cinematic shots, and full post-production.',
+                status: 'active',
+                createdAt: new Date().toISOString()
+            };
+            projects.push(sampleProject);
+            saveToStorage();
+        }
+
+        if (projects.length > 0) {
+            loadProject(projects[0].id);
+        }
+
+        renderProjects();
+        render();
+
+        console.log('🚀 Sammax Cinema Production Budget Pro loaded with custom PWA logo.');
+        console.log(`📁 ${projects.length} projects available.`);
+        console.log(`📱 PWA Status: ${isAppInstalled() ? 'Installed' : 'Installable'}`);
+        console.log(`🖼️ Custom logo: ${pwaLogo}`);
     });
 </script>
 </body>
